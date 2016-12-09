@@ -17,11 +17,12 @@ namespace Celeste.Data
         public CelesteContext(DbContextOptions<CelesteContext> options)
             : base(options)
         { }
-        public DbSet<Journey> Journey { get; set; }
-        public DbSet<QandA> QandA { get; set; }
-        public DbSet<User> User { get; set; }
-        public DbSet<UserJourney> UserJourney { get; set; }
-        public DbSet<UserResponse> UserResponse { get; set; }
+        public DbSet<Journey> Journey {get;set;}
+        public DbSet<QandA> QandA {get;set;}
+        public DbSet<User> User {get;set;}
+        public DbSet<CelesteHost> CelesteHost {get;set;}
+        public DbSet<UserJourney> UserJourney {get;set;}
+        public DbSet<UserResponse> UserResponse {get;set;}
 
         //Method: OnModelCreating() accepts one argument of type ModelBuilder and specifies exactly what properties will be included on each model as its table is created in the db.
         protected override void OnModelCreating(ModelBuilder modelBuilder)

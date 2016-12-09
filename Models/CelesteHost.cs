@@ -2,9 +2,9 @@ using System;
 
 namespace Celeste.Models
 {
-    public class Celeste
+    public class CelesteHost
     {
-        public int CelesteID {get;set;}
+        public int CelesteHostID {get;set;}
         public string Category {get;set;}
         public string Greeting {get;set;}
         public string Lesson {get;set;}
