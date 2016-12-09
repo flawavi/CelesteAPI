@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CelesteAPI.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class APIController : Controller
     {
         // GET api/values
         [HttpGet]

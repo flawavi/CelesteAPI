@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Celeste.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace CelesteAPI
 {
@@ -29,6 +31,14 @@ namespace CelesteAPI
         {
             // Add framework services.
             services.AddMvc();
+
+            var sqlConnectionString = System.Environment.GetEnvironmentVariable("Celeste_Db_path");
+            services.AddDbContext<CelesteContext>(options =>
+                options.UseNpgsql(
+                    sqlConnectionString,
+                    b => b.MigrationsAssembly("AspNet5MultipleProject")
+                )
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

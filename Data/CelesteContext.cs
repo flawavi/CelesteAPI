@@ -1,9 +1,11 @@
 using System;
-using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using Celeste.Models;
+using Microsoft.EntityFrameworkCore;
 
 /*
     Author: Fletcher Watson
+    Class: CelesteContext
     Purpose: Defines name of the session with the database - which inherits from DbContext - and the tables represented in the database.
     Sets any properties on them upon model creation.
 */
@@ -17,30 +19,27 @@ namespace Celeste.Data
         public CelesteContext(DbContextOptions<CelesteContext> options)
             : base(options)
         { }
-        public DbSet<Journey> Journey { get; set; }
-        public DbSet<QandA> QandA { get; set; }
-        public DbSet<User> User { get; set; }
-        public DbSet<UserJourney> UserJourney { get; set; }
-        public DbSet<UserResponse> UserResponse { get; set; }
+        public DbSet<Journey> Journey {get;set;}
+        public DbSet<QandA> QandA {get;set;}
+        public DbSet<User> User {get;set;}
+        public DbSet<CelesteHost> CelesteHost {get;set;}
+        public DbSet<UserJourney> UserJourney {get;set;}
+        public DbSet<UserResponse> UserResponse {get;set;}
 
         //Method: OnModelCreating() accepts one argument of type ModelBuilder and specifies exactly what properties will be included on each model as its table is created in the db.
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>()
                 .Property(b => b.DateCreated)
-                .HasDefaultValueSql("strftime('%Y-%m-%d %H:%M:%S')");
-
-            modelBuilder.Entity<Journey>()
-                .Property(b => b.DateCreated)
-                .HasDefaultValueSql("strftime('%Y-%m-%d %H:%M:%S')");
+                .HasDefaultValueSql("DateNow()");
 
             modelBuilder.Entity<UserJourney>()
                 .Property(b => b.DateCreated)
-                .HasDefaultValueSql("strftime('%Y-%m-%d %H:%M:%S')");
+                .HasDefaultValueSql("DateNow()");
                 
             modelBuilder.Entity<UserResponse>()
                 .Property(b => b.DateCreated)
-                .HasDefaultValueSql("strftime('%Y-%m-%d %H:%M:%S')");
+                .HasDefaultValueSql("DateNow()");
         }
     }
 }
