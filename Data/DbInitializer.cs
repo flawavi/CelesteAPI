@@ -29,37 +29,37 @@ namespace Celeste.Data
                 {
                   new QandA {
                       QandAID = 1,
-                      Category = "Planet",
-                      Question = "Carson",
-                      Answer = "Alexander",
+                      Category = "Planet/Moon",
+                      Question = "Test Question",
+                      Answer = "Test Answer",
+                      Point = null
+                  },
+                  new QandA {
+                      QandAID = 2,
+                      Category = "Star",
+                      Question = "Test Question",
+                      Answer = "Test Answer",
+                      Point = null
+                  },
+                  new QandA {
+                      QandAID = 3,
+                      Category = "Black Hole",
+                      Question = "Test Question",
+                      Answer = "Test Answer",
                       Point = null
                   },
                   new QandA {
                       QandAID = 1,
-                      Category = "Planet",
-                      Question = "Carson",
-                      Answer = "Alexander",
+                      Category = "Galaxy",
+                      Question = "Test Question",
+                      Answer = "Test Answer",
                       Point = null
                   },
                   new QandA {
                       QandAID = 1,
-                      Category = "Planet",
-                      Question = "Carson",
-                      Answer = "Alexander",
-                      Point = null
-                  },
-                  new QandA {
-                      QandAID = 1,
-                      Category = "Planet",
-                      Question = "Carson",
-                      Answer = "Alexander",
-                      Point = null
-                  },
-                  new QandA {
-                      QandAID = 1,
-                      Category = "Planet",
-                      Question = "Carson",
-                      Answer = "Alexander",
+                      Category = "CMB",
+                      Question = "Test Question",
+                      Answer = "Test Answer",
                       Point = null
                   },
                 };
@@ -74,17 +74,13 @@ namespace Celeste.Data
                 var celesteHost = new CelesteHost[]
                 {
                   new CelesteHost {
-                      Lesson = "Electronics",
-                      Greeting = ""
-                  },
-                  new CelesteHost {
-                      Lesson = "Appliances",
-                      Greeting = ""
-                  },
-                  new CelesteHost {
-                      Lesson = "Housewares",
-                      Greeting = ""
-                  },
+                      CelesteHostID = 1,
+                      Lesson = "This is a test Lesson",
+                      Greeting = "This is a test Greeting",
+                      Name = "Celeste",
+                      Category = "Planet",
+                      ImageURL = "https://s-media-cache-ak0.pinimg.com/564x/48/4c/34/484c347c62cbb2d7759adcac763a6994.jpg"
+                  }
                 };
 
                 foreach (CelesteHost ch in celesteHost)
@@ -92,6 +88,74 @@ namespace Celeste.Data
                     context.CelesteHost.Add(ch);
                 }
                 context.SaveChanges();
+
+                var journey = new Journey[]
+                {
+                    new Journey {
+                        JourneyID = 1, 
+                        Name = "BlastOff",
+                        FromXToY = "Earth to Moon"
+                    },
+                    new Journey {
+                        JourneyID = 2, 
+                        Name = "Fourth Rock",
+                        FromXToY = "Moon to Mars"
+                    },new Journey {
+                        JourneyID = 3, 
+                        Name = "The Jewel",
+                        FromXToY = "Mars to Saturn"
+                    },
+                    new Journey {
+                        JourneyID = 4, 
+                        Name = "The Defender",
+                        FromXToY = "Saturn to Jupiter"
+                    },
+                    new Journey {
+                        JourneyID = 5, 
+                        Name = "Sol",
+                        FromXToY = "Jupiter to Sun"
+                    },
+                    new Journey {
+                        JourneyID = 6, 
+                        Name = "The Big Belt",
+                        FromXToY = "Sun to Kuiper Belt/Pluto"
+                    },
+                    new Journey {
+                        JourneyID = 7, 
+                        Name = "Borderlands",
+                        FromXToY = "Kuiper Belt/Pluto to Oort Cloud"
+                    },
+                    new Journey {
+                        JourneyID = 8, 
+                        Name = "Far From Home",
+                        FromXToY = "Oort Cloud to Voyager"
+                    },
+                    new Journey {
+                        JourneyID = 9, 
+                        Name = "Our Trinary Neighbor",
+                        FromXToY = "Voyager to Alpha Centauri"
+                    },
+                    new Journey {
+                        JourneyID = 10, 
+                        Name = "Another World",
+                        FromXToY = "Alpha Centauri to Proxima B"
+                    },
+                    new Journey {
+                        JourneyID = 11, 
+                        Name = "The Hole",
+                        FromXToY = "Proxima B to Milky Way Black Hole"
+                    },
+                    new Journey {
+                        JourneyID = 12, 
+                        Name = "Intergalactic",
+                        FromXToY = "Milk Way Black Hole to Andromeda"
+                    },
+                    new Journey {
+                        JourneyID = 13, 
+                        Name = "The Unbounded Perimeter",
+                        FromXToY = "Andromeda to Cosmic Microwave Background"
+                    }
+                };
 
                 var user = new User[]
                 {
@@ -109,7 +173,7 @@ namespace Celeste.Data
                       FirstName = "Jeremy",
                       LastName = "Jones",
                       UserName = "Gjere2",
-                      Age = 20,
+                      Age = 30,
                       Email = "Jeremy@Jeremy.com",
                       DateCreated = new DateTime()
                   },
@@ -118,10 +182,10 @@ namespace Celeste.Data
                       FirstName = "Gerald",
                       LastName = "Jones",
                       UserName = "Gjere3",
-                      Age = 20,
+                      Age = 40,
                       Email = "Gerald@Gerald.com",
                       DateCreated = new DateTime()
-                  },
+                  }
                 };
 
                 foreach (User u in user)

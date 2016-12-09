@@ -26,7 +26,8 @@
                 }
             },
             "env": {
-                "ASPNETCORE_ENVIRONMENT": "Development"
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "CelesteAPI_Db_Path": "/Users/FBW6/workspace/CelesteAPI/CelesteAPI.db"
             },
             "sourceFileMap": {
                 "/Views": "${workspaceRoot}/Views"

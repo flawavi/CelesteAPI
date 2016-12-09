@@ -1,9 +1,11 @@
 using System;
-using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using Celeste.Models;
+using Microsoft.EntityFrameworkCore;
 
 /*
     Author: Fletcher Watson
+    Class: CelesteContext
     Purpose: Defines name of the session with the database - which inherits from DbContext - and the tables represented in the database.
     Sets any properties on them upon model creation.
 */
@@ -29,19 +31,15 @@ namespace Celeste.Data
         {
             modelBuilder.Entity<User>()
                 .Property(b => b.DateCreated)
-                .HasDefaultValueSql("strftime('%Y-%m-%d %H:%M:%S')");
-
-            modelBuilder.Entity<Journey>()
-                .Property(b => b.DateCreated)
-                .HasDefaultValueSql("strftime('%Y-%m-%d %H:%M:%S')");
+                .HasDefaultValueSql("DateNow()");
 
             modelBuilder.Entity<UserJourney>()
                 .Property(b => b.DateCreated)
-                .HasDefaultValueSql("strftime('%Y-%m-%d %H:%M:%S')");
+                .HasDefaultValueSql("DateNow()");
                 
             modelBuilder.Entity<UserResponse>()
                 .Property(b => b.DateCreated)
-                .HasDefaultValueSql("strftime('%Y-%m-%d %H:%M:%S')");
+                .HasDefaultValueSql("DateNow()");
         }
     }
 }
