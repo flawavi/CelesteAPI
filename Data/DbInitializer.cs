@@ -20,53 +20,331 @@ namespace Celeste.Data
             using (var context = new CelesteContext(serviceProvider.GetRequiredService<DbContextOptions<CelesteContext>>()))
             {
                 // Look for any QandA.
-                if (context.QandA.Any())
+                if (context.Trivia.Any())
                 {
                     return;
                 }
-
-                var QA = new QandA[]
+                var journey = new Journey[]
                 {
-                  new QandA {
-                      QandAID = 1,
-                      Category = "Planet/Moon",
-                      Question = "Test Question",
-                      Answer = "Test Answer",
-                      Point = null
-                  },
-                  new QandA {
-                      QandAID = 2,
-                      Category = "Star",
-                      Question = "Test Question",
-                      Answer = "Test Answer",
-                      Point = null
-                  },
-                  new QandA {
-                      QandAID = 3,
-                      Category = "Black Hole",
-                      Question = "Test Question",
-                      Answer = "Test Answer",
-                      Point = null
-                  },
-                  new QandA {
-                      QandAID = 1,
-                      Category = "Galaxy",
-                      Question = "Test Question",
-                      Answer = "Test Answer",
-                      Point = null
-                  },
-                  new QandA {
-                      QandAID = 1,
-                      Category = "CMB",
-                      Question = "Test Question",
-                      Answer = "Test Answer",
-                      Point = null
-                  },
+                    new Journey {
+                        Name = "BlastOff",
+                        Destination = "Moon"
+                    },
+                    new Journey {
+                        Name = "Rusted Rock",
+                        Destination = "Mars"
+                    },
+                    new Journey {
+                        Name = "The Jewel",
+                        Destination = "Saturn"
+                    },
+                    new Journey {
+                        Name = "The Defender",
+                        Destination = "Jupiter"
+                    },
+                    new Journey {
+                        Name = "Sol",
+                        Destination = "Sun"
+                    },
+                    new Journey {
+                        Name = "Solar Shell",
+                        Destination = "The Oort Cloud"
+                    },
+                    new Journey {
+                        Name = "Our Trinary Neighbor",
+                        Destination = "Alpha Centauri"
+                    },
+                    new Journey {
+                        Name = "The Hole",
+                        Destination = "Milky Way Black Hole"
+                    },
+                    new Journey {
+                        Name = "Intergalactic",
+                        Destination = "Andromeda"
+                    }
                 };
 
-                foreach (QandA qa in QA)
+                foreach (Journey j in journey)
                 {
-                    context.QandA.Add(qa);
+                    context.Journey.Add(j);
+                }
+                context.SaveChanges();
+
+                var Triv = new Trivia[]
+                {
+                  new Trivia {
+                      TriviaID = 1,
+                      JourneyID = journey.Single(j => j.Destination == "Moon").JourneyID,
+                      Question = "What is the radius of the moon?",
+                      Answer = "1,080 miles",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = 2,
+                      JourneyID = journey.Single(j => j.Destination == "Moon").JourneyID,
+                      Question = "What is the average distance between the Moon and the Earth?",
+                      Answer = "240,000 miles",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = 3,
+                      JourneyID = journey.Single(j => j.Destination == "Moon").JourneyID,
+                      Question = "What is the average distance between the Moon and the Sun?",
+                      Answer = "93,205,679 miles",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = 4,
+                      JourneyID = journey.Single(j => j.Destination == "Moon").JourneyID,
+                      Question = "About how many Earth days does it take the Moon to rotate on its axis?",
+                      Answer = "27",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Moon").JourneyID,
+                      Question = "What is the approximate age of the Moon?",
+                      Answer = "4,500,000,000 years old.",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Mars").JourneyID,
+                      Question = "What is the average distance between Mars and the Sun?",
+                      Answer = "1,420,000 miles",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Mars").JourneyID,
+                      Question = "What two elements are primarily responsible for Mars' red hue?",
+                      Answer = "Iron and Oxygen",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Mars").JourneyID,
+                      Question = "What is the diameter of Mars?",
+                      Answer = "4,200 miles",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Mars").JourneyID,
+                      Question = "How many moons does Mars have?",
+                      Answer = "2",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Mars").JourneyID,
+                      Question = "What is the name of the giant canyon on Mars?",
+                      Answer = "Valles Marineris",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Saturn").JourneyID,
+                      Question = "What is the average distance between Saturn and The Sun?",
+                      Answer = "888,000,000 miles",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Saturn").JourneyID,
+                      Question = "What is the approximate diameter of Saturn?",
+                      Answer = "72,370 miles",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Saturn").JourneyID,
+                      Question = "What peculiar shape surrounds Saturn's north pole?",
+                      Answer = "Hexagon",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Saturn").JourneyID,
+                      Question = "Approximately how think are the rings of Saturn?",
+                      Answer = "30 feet",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Jupiter").JourneyID,
+                      Question = "What is the diameter of Jupiter?",
+                      Answer = "86,881 miles",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Jupiter").JourneyID,
+                      Question = "How many moons does Jupiter have?",
+                      Answer = "67",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Jupiter").JourneyID,
+                      Question = "The gas giant Jupiter is composed of 90% ____ and just under 10% ____?",
+                      Answer = "Hydrogen Helium",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Jupiter").JourneyID,
+                      Question = "What is the average distance between Jupiter and the Sun?",
+                      Answer = "480,000,000 miles",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Jupiter").JourneyID,
+                      Question = "How many Earth years are equivalent to one Jovian year?",
+                      Answer = "11.86 Earth years",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Sun").JourneyID,
+                      Question = "What is the diameter of the Sun?",
+                      Answer = "865,000 miles",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Sun").JourneyID,
+                      Question = "What is the average distance between the Sun and Earth?",
+                      Answer = "93,000,000 miles",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Sun").JourneyID,
+                      Question = "What is the surface temperature of the Sun?",
+                      Answer = "9,940°F",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Sun").JourneyID,
+                      Question = "How long does it take light to reach Earth from the Sun?",
+                      Answer = "8 minutes 20 seconds",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Sun").JourneyID,
+                      Question = "Approximately how many Earths would fit inside the Sun?",
+                      Answer = "1,300,000",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "The Oort Cloud").JourneyID,
+                      Question = "The Oort cloud defines the boundary of what?",
+                      Answer = "The Solar System",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "The Oort Cloud").JourneyID,
+                      Question = "At its closest point, how far away is the Oort Cloud from the center of the Solar System (Sun)? And its farthest?",
+                      Answer = ".8 ly, 3.2 ly",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "The Oort Cloud").JourneyID,
+                      Question = "The Oort Cloud is responsible for producing what types of objects that fly by Earth periodically?",
+                      Answer = "Comets",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "The Oort Cloud").JourneyID,
+                      Question = "What is the basic shape of the Oort Cloud?",
+                      Answer = "A Sphere",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "The Oort Cloud").JourneyID,
+                      Question = "What is the estimated number of objects existing in the Oort Cloud?",
+                      Answer = "2,000,000,000,000",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Alpha Centauri").JourneyID,
+                      Question = "Alpha Centauri is a star system consisting of how many stars?",
+                      Answer = "3",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Alpha Centauri").JourneyID,
+                      Question = "How far away is Alpha Centauri from us?",
+                      Answer = "4.37 ly",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Alpha Centauri").JourneyID,
+                      Question = "Alpha Centauri forms the brightest 'star' in which constellation?",
+                      Answer = "Centaurus",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Alpha Centauri").JourneyID,
+                      Question = "What is the surface temperature of Alpha Centauri?",
+                      Answer = "9,940°F",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Alpha Centauri").JourneyID,
+                      Question = "How many stars are brighter than Alpha Centauri in the night sky?",
+                      Answer = "2",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Milky Way Black Hole").JourneyID,
+                      Question = "Approximately how wide is the Milky Way?",
+                      Answer = "100,000 ly",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Milky Way Black Hole").JourneyID,
+                      Question = "There are at least how many stars in the Milky Way Galaxy?",
+                      Answer = "100,000,000,000",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Milky Way Black Hole").JourneyID,
+                      Question = "What type of galaxy is the Milky Way?",
+                      Answer = "Spiral Galaxy",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Milky Way Black Hole").JourneyID,
+                      Question = "Likely what is Saggitarius A, the object at the center of the Milky Way?",
+                      Answer = "A supermassive black hole",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Milky Way Black Hole").JourneyID,
+                      Question = "How massive is Saggitarius A (in solar masses)?",
+                      Answer = "4,200,000 solar masses",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Andromeda").JourneyID,
+                      Question = "What is Andromeda?",
+                      Answer = "A spiral galaxy",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Andromeda").JourneyID,
+                      Question = "Approximately how far away is Andromeda from The Milky Way?",
+                      Answer = "2,500,000 ly",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Andromeda").JourneyID,
+                      Question = "Approximately how far across is the Andromeda Galaxy?",
+                      Answer = "220,000 ly",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Andromeda").JourneyID,
+                      Question = "The Milky Way and Andromeda Galaxies are expected to collide in how many years?",
+                      Answer = "4,500,000 years",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Andromeda").JourneyID,
+                      Question = "Approximately how many stars are in the Andromeda Galaxy?",
+                      Answer = "1,000,000,000,000 stars",
+                      Point = 0
+                  }
+                };
+
+                foreach (Trivia tr in Triv)
+                {
+                    context.Trivia.Add(tr);
                 }
                 context.SaveChanges();
 
@@ -88,74 +366,6 @@ namespace Celeste.Data
                     context.CelesteHost.Add(ch);
                 }
                 context.SaveChanges();
-
-                var journey = new Journey[]
-                {
-                    new Journey {
-                        JourneyID = 1, 
-                        Name = "BlastOff",
-                        FromXToY = "Earth to Moon"
-                    },
-                    new Journey {
-                        JourneyID = 2, 
-                        Name = "Fourth Rock",
-                        FromXToY = "Moon to Mars"
-                    },new Journey {
-                        JourneyID = 3, 
-                        Name = "The Jewel",
-                        FromXToY = "Mars to Saturn"
-                    },
-                    new Journey {
-                        JourneyID = 4, 
-                        Name = "The Defender",
-                        FromXToY = "Saturn to Jupiter"
-                    },
-                    new Journey {
-                        JourneyID = 5, 
-                        Name = "Sol",
-                        FromXToY = "Jupiter to Sun"
-                    },
-                    new Journey {
-                        JourneyID = 6, 
-                        Name = "The Big Belt",
-                        FromXToY = "Sun to Kuiper Belt/Pluto"
-                    },
-                    new Journey {
-                        JourneyID = 7, 
-                        Name = "Borderlands",
-                        FromXToY = "Kuiper Belt/Pluto to Oort Cloud"
-                    },
-                    new Journey {
-                        JourneyID = 8, 
-                        Name = "Far From Home",
-                        FromXToY = "Oort Cloud to Voyager"
-                    },
-                    new Journey {
-                        JourneyID = 9, 
-                        Name = "Our Trinary Neighbor",
-                        FromXToY = "Voyager to Alpha Centauri"
-                    },
-                    new Journey {
-                        JourneyID = 10, 
-                        Name = "Another World",
-                        FromXToY = "Alpha Centauri to Proxima B"
-                    },
-                    new Journey {
-                        JourneyID = 11, 
-                        Name = "The Hole",
-                        FromXToY = "Proxima B to Milky Way Black Hole"
-                    },
-                    new Journey {
-                        JourneyID = 12, 
-                        Name = "Intergalactic",
-                        FromXToY = "Milk Way Black Hole to Andromeda"
-                    },
-                    new Journey {
-                        JourneyID = 13, 
-                        Name = "The Unbounded Perimeter",
-                        FromXToY = "Andromeda to Cosmic Microwave Background"
-                    }
-                };
 
                 var user = new User[]
                 {
