@@ -27,7 +27,7 @@
             },
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development",
-                "CelesteAPI_Db_Path": "/Users/FBW6/workspace/CelesteAPI/CelesteAPI.db"
+                "Celeste_Db_Path": "User ID=FletcherBangs;Password=asdfasdf;Host=localhost;Port=5432;Database=CelesteDb;Pooling=true;"
             },
             "sourceFileMap": {
                 "/Views": "${workspaceRoot}/Views"

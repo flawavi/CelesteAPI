@@ -24,49 +24,157 @@ namespace Celeste.Data
                 {
                     return;
                 }
-
-                var QA = new QandA[]
+                var journey = new Journey[]
                 {
-                  new QandA {
-                      QandAID = 1,
-                      Category = "Planet/Moon",
-                      Question = "Test Question",
-                      Answer = "Test Answer",
-                      Point = null
-                  },
-                  new QandA {
-                      QandAID = 2,
-                      Category = "Star",
-                      Question = "Test Question",
-                      Answer = "Test Answer",
-                      Point = null
-                  },
-                  new QandA {
-                      QandAID = 3,
-                      Category = "Black Hole",
-                      Question = "Test Question",
-                      Answer = "Test Answer",
-                      Point = null
-                  },
-                  new QandA {
-                      QandAID = 1,
-                      Category = "Galaxy",
-                      Question = "Test Question",
-                      Answer = "Test Answer",
-                      Point = null
-                  },
-                  new QandA {
-                      QandAID = 1,
-                      Category = "CMB",
-                      Question = "Test Question",
-                      Answer = "Test Answer",
-                      Point = null
-                  },
+                    new Journey {
+                        Name = "BlastOff",
+                        Destination = "Moon"
+                    },
+                    new Journey {
+                        Name = "Fourth Rock",
+                        Destination = "Mars"
+                    },
+                    new Journey {
+                        Name = "The Jewel",
+                        Destination = "Saturn"
+                    },
+                    new Journey {
+                        Name = "The Defender",
+                        Destination = "Jupiter"
+                    },
+                    new Journey {
+                        Name = "Sol",
+                        Destination = "Sun"
+                    },
+                    new Journey {
+                        Name = "The Big Belt",
+                        Destination = "The Kuiper Belt/Pluto"
+                    },
+                    new Journey {
+                        Name = "Borderlands",
+                        Destination = "The Oort Cloud"
+                    },
+                    new Journey {
+                        Name = "Far From Home",
+                        Destination = "Voyager 1"
+                    },
+                    new Journey {
+                        Name = "Our Trinary Neighbor",
+                        Destination = "Alpha Centauri"
+                    },
+                    new Journey {
+                        Name = "Another World",
+                        Destination = "Proxima B"
+                    },
+                    new Journey {
+                        Name = "The Hole",
+                        Destination = "Milky Way Black Hole"
+                    },
+                    new Journey {
+                        Name = "Intergalactic",
+                        Destination = "Andromeda"
+                    },
+                    new Journey {
+                        Name = "The Unbounded Perimeter",
+                        Destination = "Cosmic Microwave Background"
+                    }
                 };
 
-                foreach (QandA qa in QA)
+                foreach (Journey j in journey)
                 {
-                    context.QandA.Add(qa);
+                    context.Journey.Add(j);
+                }
+                context.SaveChanges();
+
+                var Triv = new Trivia[]
+                {
+                  new Trivia {
+                      TriviaID = 1,
+                      JourneyID = journey.Single(j => j.Destination == "Moon").JourneyID,
+                      Question = "What is the radius of the moon?",
+                      Answer = "1,080 miles",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = 2,
+                      JourneyID = journey.Single(j => j.Destination == "Mars").JourneyID,
+                      Question = "What is the average distance between the Moon and the Earth?",
+                      Answer = "240,000 miles",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = 3,
+                      JourneyID = journey.Single(j => j.Destination == "Saturn").JourneyID,
+                      Question = "What is the average distance between the Moon and the Sun?",
+                      Answer = "93,205,679 miles",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = 4,
+                      JourneyID = journey.Single(j => j.Destination == "Jupiter").JourneyID,
+                      Question = "What is the speed of rotation of the Moon?",
+                      Answer = "",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Sun").JourneyID,
+                      Question = "Test Question",
+                      Answer = "Test Answer",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == " The Kuiper Belt/Pluto").JourneyID,
+                      Question = "Test Question",
+                      Answer = "Test Answer",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "The Oort Cloud").JourneyID,
+                      Question = "Test Question",
+                      Answer = "Test Answer",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Voyager 1").JourneyID,
+                      Question = "Test Question",
+                      Answer = "Test Answer",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Alpha Centauri").JourneyID,
+                      Question = "Test Question",
+                      Answer = "Test Answer",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Proxima B").JourneyID,
+                      Question = "Test Question",
+                      Answer = "Test Answer",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Milky Way Black Hole").JourneyID,
+                      Question = "Test Question",
+                      Answer = "Test Answer",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Andromeda").JourneyID,
+                      Question = "Test Question",
+                      Answer = "Test Answer",
+                      Point = 0
+                  },
+                  new Trivia {
+                      TriviaID = journey.Single(j => j.Destination == "Cosmic Microwave Background").JourneyID,
+                      Question = "Test Question",
+                      Answer = "Test Answer",
+                      Point = 0
+                  }
+                };
+
+                foreach (Trivia tr in Triv)
+                {
+                    context.Trivia.Add(tr);
                 }
                 context.SaveChanges();
 
@@ -88,74 +196,6 @@ namespace Celeste.Data
                     context.CelesteHost.Add(ch);
                 }
                 context.SaveChanges();
-
-                var journey = new Journey[]
-                {
-                    new Journey {
-                        JourneyID = 1, 
-                        Name = "BlastOff",
-                        FromXToY = "Earth to Moon"
-                    },
-                    new Journey {
-                        JourneyID = 2, 
-                        Name = "Fourth Rock",
-                        FromXToY = "Moon to Mars"
-                    },new Journey {
-                        JourneyID = 3, 
-                        Name = "The Jewel",
-                        FromXToY = "Mars to Saturn"
-                    },
-                    new Journey {
-                        JourneyID = 4, 
-                        Name = "The Defender",
-                        FromXToY = "Saturn to Jupiter"
-                    },
-                    new Journey {
-                        JourneyID = 5, 
-                        Name = "Sol",
-                        FromXToY = "Jupiter to Sun"
-                    },
-                    new Journey {
-                        JourneyID = 6, 
-                        Name = "The Big Belt",
-                        FromXToY = "Sun to Kuiper Belt/Pluto"
-                    },
-                    new Journey {
-                        JourneyID = 7, 
-                        Name = "Borderlands",
-                        FromXToY = "Kuiper Belt/Pluto to Oort Cloud"
-                    },
-                    new Journey {
-                        JourneyID = 8, 
-                        Name = "Far From Home",
-                        FromXToY = "Oort Cloud to Voyager"
-                    },
-                    new Journey {
-                        JourneyID = 9, 
-                        Name = "Our Trinary Neighbor",
-                        FromXToY = "Voyager to Alpha Centauri"
-                    },
-                    new Journey {
-                        JourneyID = 10, 
-                        Name = "Another World",
-                        FromXToY = "Alpha Centauri to Proxima B"
-                    },
-                    new Journey {
-                        JourneyID = 11, 
-                        Name = "The Hole",
-                        FromXToY = "Proxima B to Milky Way Black Hole"
-                    },
-                    new Journey {
-                        JourneyID = 12, 
-                        Name = "Intergalactic",
-                        FromXToY = "Milk Way Black Hole to Andromeda"
-                    },
-                    new Journey {
-                        JourneyID = 13, 
-                        Name = "The Unbounded Perimeter",
-                        FromXToY = "Andromeda to Cosmic Microwave Background"
-                    }
-                };
 
                 var user = new User[]
                 {

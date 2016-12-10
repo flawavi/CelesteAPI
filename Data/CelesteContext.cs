@@ -20,7 +20,7 @@ namespace Celeste.Data
             : base(options)
         { }
         public DbSet<Journey> Journey {get;set;}
-        public DbSet<QandA> QandA {get;set;}
+        public DbSet<Trivia> Trivia {get;set;}
         public DbSet<User> User {get;set;}
         public DbSet<CelesteHost> CelesteHost {get;set;}
         public DbSet<UserJourney> UserJourney {get;set;}

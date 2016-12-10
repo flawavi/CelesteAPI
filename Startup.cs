@@ -32,11 +32,10 @@ namespace CelesteAPI
             // Add framework services.
             services.AddMvc();
 
-            var sqlConnectionString = System.Environment.GetEnvironmentVariable("Celeste_Db_path");
+            var sqlConnectionString = System.Environment.GetEnvironmentVariable("Celeste_Db_Path");
             services.AddDbContext<CelesteContext>(options =>
                 options.UseNpgsql(
-                    sqlConnectionString,
-                    b => b.MigrationsAssembly("AspNet5MultipleProject")
+                    sqlConnectionString
                 )
             );
         }
@@ -48,6 +47,7 @@ namespace CelesteAPI
             loggerFactory.AddDebug();
 
             app.UseMvc();
+            DbInitializer.Initialize(app.ApplicationServices);
         }
     }
 }

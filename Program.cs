@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
+using Celeste.Data;
 
 namespace CelesteAPI
 {
