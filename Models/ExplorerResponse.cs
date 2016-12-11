@@ -3,12 +3,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Celeste.Models
 {
-    public class UserResponse
+    public class ExplorerResponse
     {
         [Key]
-        public int UserResponseID {get;set;}
-        public int UserId {get;set;}
-        public User User {get;set;}
+        public int ExplorerResponseID {get;set;}
+        public int ExplorerID {get;set;}
+        public Explorer Explorer {get;set;}
         public bool Correct {get;set;}
         public DateTime DateCreated {get;set;}
     }
