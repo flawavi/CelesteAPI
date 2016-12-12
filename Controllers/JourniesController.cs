@@ -2,8 +2,8 @@ using System;
 using System.Linq;
 using Celeste.Data;
 using Celeste.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
 namespace CelesteAPI.Controllers

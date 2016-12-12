@@ -13,8 +13,11 @@ namespace Celeste.Data
     //The DbInitializer class is used to seed the database (CelesteContext)
     public static class DbInitializer
     {
-        //Method: The initialize method creates a scoped variable "context," which represents a session with the database. 
-        //If there are any Trivia currently in the database, then it will not be seeded.
+        /*
+        Method: The initialize method creates a scoped variable "context," which represents a session with the database. 
+        If there are any Journies currently in the database, then it will not be seeded.
+        The using keyword manages the session with the database, ensuring that the connection opens and closes properly.
+        */
         public static void Initialize(IServiceProvider serviceProvider)
         {
             using (var context = new CelesteContext(serviceProvider.GetRequiredService<DbContextOptions<CelesteContext>>()))
@@ -51,7 +54,7 @@ namespace Celeste.Data
                         Destination = "The Oort Cloud"
                     },
                     new Journey {
-                        Name = "Our Trinary Neighbor",
+                        Name = "The Next Star Neighbor",
                         Destination = "Alpha Centauri"
                     },
                     new Journey {
