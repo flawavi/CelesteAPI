@@ -9,10 +9,10 @@ using Microsoft.EntityFrameworkCore;
 namespace CelesteAPI.Controllers
 {
     [Route("[controller]")]
-    public class TriviasController : Controller
+    public class JourneyController : Controller
     {
         private CelesteContext context;
-        public TriviasController(CelesteContext ctx)
+        public JourneyController(CelesteContext ctx)
         {
             context = ctx;
         }
@@ -21,18 +21,18 @@ namespace CelesteAPI.Controllers
         public IActionResult Get()
         {
             //select everything in the explorer table
-            IQueryable<object> trivias = from trivia in context.Trivia select trivia;
+            IQueryable<object> journies = from journey in context.Journey select journey;
 
-            if (trivias == null)
+            if (journies == null)
             {
                 return NotFound();
             }
 
-            return Ok(trivias);
+            return Ok(journies);
         }
 
         // GET api/values/5
-        [HttpGet("{id}", Name="GetTrivia")]
+        [HttpGet("{id}", Name="GetJourney")]
         public IActionResult Get(int id)
         {
             if (!ModelState.IsValid)
@@ -41,14 +41,14 @@ namespace CelesteAPI.Controllers
             }
             try
             {
-                Trivia trivia = context.Trivia.Single(t => t.TriviaID == id);
+                Journey journey = context.Journey.Single(j => j.JourneyID == id);
 
-                if (trivia == null)
+                if (journey == null)
                 {
                     return NotFound();
                 }
                 
-                return Ok(trivia);
+                return Ok(journey);
             }
             catch (System.InvalidOperationException ex)
             {
@@ -58,21 +58,21 @@ namespace CelesteAPI.Controllers
 
         // POST api/values
         [HttpPost]
-        public IActionResult Post([FromBody]Trivia trivia)
+        public IActionResult Post([FromBody]Journey journey)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            context.Trivia.Add(trivia);
+            context.Journey.Add(journey);
             try
             {
                 context.SaveChanges();
             }
             catch (DbUpdateException)
             {
-                if (TriviaExists(trivia.TriviaID))
+                if (JourneyExists(journey.JourneyID))
                 {
                     return new StatusCodeResult(StatusCodes.Status409Conflict);
                 }
@@ -81,24 +81,24 @@ namespace CelesteAPI.Controllers
                     throw;
                 }
             }
-            return CreatedAtRoute("GetTrivia", new { id = trivia.TriviaID }, trivia);
+            return CreatedAtRoute("GetJourney", new { id = journey.JourneyID }, journey);
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody]Trivia trivia)
+        public IActionResult Put(int id, [FromBody]Journey journey)
         {
             if(!ModelState.IsValid)
             {
                 return BadRequest();
             }
-           if (trivia.TriviaID != id)
+           if (journey.JourneyID != id)
             {
                 return BadRequest();
             }
-            context.Trivia.Update(trivia);
+            context.Journey.Update(journey);
             context.SaveChanges();
-            return Ok(trivia);
+            return Ok(journey);
         }
 
         // DELETE api/values/5
@@ -110,20 +110,20 @@ namespace CelesteAPI.Controllers
                 return BadRequest();
             }
 
-            Trivia trivia = context.Trivia.Single(t => t.TriviaID == id);
+            Journey journey = context.Journey.Single(j => j.JourneyID == id);
             
-            if(trivia == null)
+            if(journey == null)
             {
                 return NotFound();
             }
             try
             {
-                context.Trivia.Remove(trivia);
+                context.Journey.Remove(journey);
                 context.SaveChanges();
             }
             catch (DbUpdateException)
             {
-            if (TriviaExists(trivia.TriviaID))
+            if (JourneyExists(journey.JourneyID))
                 {
                     return new StatusCodeResult(StatusCodes.Status409Conflict);
                 }
@@ -132,12 +132,12 @@ namespace CelesteAPI.Controllers
                     throw new Exception();
                 }
             }
-            return Ok(trivia);
+            return Ok(journey);
         }
         //Method: returns true if there is at least a single instance of an Explorer in Celeste.context.
-        private bool TriviaExists(int id)
+        private bool JourneyExists(int id)
         {
-            return context.Trivia.Count(t => t.TriviaID == id) > 0;
+            return context.Journey.Count(j => j.JourneyID == id) > 0;
         }
     }
 }

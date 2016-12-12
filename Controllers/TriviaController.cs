@@ -9,10 +9,10 @@ using Microsoft.EntityFrameworkCore;
 namespace CelesteAPI.Controllers
 {
     [Route("[controller]")]
-    public class ExplorersController : Controller
+    public class TriviaController : Controller
     {
         private CelesteContext context;
-        public ExplorersController(CelesteContext ctx)
+        public TriviaController(CelesteContext ctx)
         {
             context = ctx;
         }
@@ -21,30 +21,34 @@ namespace CelesteAPI.Controllers
         public IActionResult Get()
         {
             //select everything in the explorer table
-            IQueryable<object> explorers = from explorer in context.Explorer select explorer;
+            IQueryable<object> trivias = from trivia in context.Trivia select trivia;
 
-            if (explorers == null)
+            if (trivias == null)
             {
                 return NotFound();
             }
 
-            return Ok(explorers);
+            return Ok(trivias);
         }
 
         // GET api/values/5
-        [HttpGet("{id}", Name="GetExplorer")]
+        [HttpGet("{id}", Name="GetTrivia")]
         public IActionResult Get(int id)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             try
             {
-                Explorer explorer = context.Explorer.Single(e => e.ExplorerID == id);
+                Trivia trivia = context.Trivia.Single(t => t.TriviaID == id);
 
-                if (explorer == null)
+                if (trivia == null)
                 {
                     return NotFound();
                 }
                 
-                return Ok(explorer);
+                return Ok(trivia);
             }
             catch (System.InvalidOperationException ex)
             {
@@ -54,21 +58,21 @@ namespace CelesteAPI.Controllers
 
         // POST api/values
         [HttpPost]
-        public IActionResult Post([FromBody]Explorer explorer)
+        public IActionResult Post([FromBody]Trivia trivia)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            context.Explorer.Add(explorer);
+            context.Trivia.Add(trivia);
             try
             {
                 context.SaveChanges();
             }
             catch (DbUpdateException)
             {
-                if (ExplorerExists(explorer.ExplorerID))
+                if (TriviaExists(trivia.TriviaID))
                 {
                     return new StatusCodeResult(StatusCodes.Status409Conflict);
                 }
@@ -77,24 +81,24 @@ namespace CelesteAPI.Controllers
                     throw;
                 }
             }
-            return CreatedAtRoute("GetExplorer", new { id = explorer.ExplorerID }, explorer);
+            return CreatedAtRoute("GetTrivia", new { id = trivia.TriviaID }, trivia);
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody]Explorer explorer)
+        public IActionResult Put(int id, [FromBody]Trivia trivia)
         {
             if(!ModelState.IsValid)
             {
                 return BadRequest();
             }
-           if (explorer.ExplorerID != id)
+           if (trivia.TriviaID != id)
             {
                 return BadRequest();
             }
-            context.Explorer.Update(explorer);
+            context.Trivia.Update(trivia);
             context.SaveChanges();
-            return Ok(explorer);
+            return Ok(trivia);
         }
 
         // DELETE api/values/5
@@ -106,20 +110,20 @@ namespace CelesteAPI.Controllers
                 return BadRequest();
             }
 
-            Explorer explorer = context.Explorer.Single(e => e.ExplorerID == id);
+            Trivia trivia = context.Trivia.Single(t => t.TriviaID == id);
             
-            if(explorer == null)
+            if(trivia == null)
             {
                 return NotFound();
             }
             try
             {
-                context.Explorer.Remove(explorer);
+                context.Trivia.Remove(trivia);
                 context.SaveChanges();
             }
             catch (DbUpdateException)
             {
-            if (ExplorerExists(explorer.ExplorerID))
+            if (TriviaExists(trivia.TriviaID))
                 {
                     return new StatusCodeResult(StatusCodes.Status409Conflict);
                 }
@@ -128,12 +132,12 @@ namespace CelesteAPI.Controllers
                     throw new Exception();
                 }
             }
-            return Ok(explorer);
+            return Ok(trivia);
         }
         //Method: returns true if there is at least a single instance of an Explorer in Celeste.context.
-        private bool ExplorerExists(int id)
+        private bool TriviaExists(int id)
         {
-            return context.Explorer.Count(e => e.ExplorerID == id) > 0;
+            return context.Trivia.Count(t => t.TriviaID == id) > 0;
         }
     }
 }
