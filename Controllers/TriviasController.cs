@@ -32,7 +32,7 @@ namespace CelesteAPI.Controllers
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name="GetTrivia")]
         public IActionResult Get(int id)
         {
             if (!ModelState.IsValid)
@@ -81,7 +81,7 @@ namespace CelesteAPI.Controllers
                     throw;
                 }
             }
-            return CreatedAtRoute("GetCustomer", new { id = trivia.TriviaID }, trivia);
+            return CreatedAtRoute("GetTrivia", new { id = trivia.TriviaID }, trivia);
         }
 
         // PUT api/values/5
