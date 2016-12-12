@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CelesteAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class JourniesController : Controller
     {
         private CelesteContext context;
