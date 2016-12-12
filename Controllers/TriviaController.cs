@@ -4,7 +4,10 @@ using Celeste.Data;
 using Celeste.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using Celeste.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace CelesteAPI.Controllers
 {
@@ -18,17 +21,24 @@ namespace CelesteAPI.Controllers
         }
         // GET api/values
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
             //select everything in the explorer table
-            IQueryable<object> trivias = from trivia in context.Trivia select trivia;
-
+            List<Trivia> trivias = await context.Trivia.ToListAsync();
+            List<TriviaViewModel> TVM = new List<TriviaViewModel>();
+            foreach(Trivia t in trivias)
+            {
+                Journey result = await context.Journey.Where(j => j.JourneyID == t.JourneyID).SingleOrDefaultAsync();
+                TriviaViewModel model = new TriviaViewModel(t);
+                model.Journey = new JourneyViewModel(result);
+                TVM.Add(model);
+            }
             if (trivias == null)
             {
                 return NotFound();
             }
 
-            return Ok(trivias);
+            return Ok(TVM);
         }
 
         // GET api/values/5

@@ -5,6 +5,8 @@ using Celeste.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using Celeste.Models.ViewModels;
 
 namespace CelesteAPI.Controllers
 {
@@ -22,7 +24,13 @@ namespace CelesteAPI.Controllers
         {
             //select everything in the explorer table
             IQueryable<object> journies = from journey in context.Journey select journey;
-
+            List<JourneyViewModel> JVM = new List<JourneyViewModel>();
+            foreach(Journey j in journies)
+            {
+                JourneyViewModel model = new JourneyViewModel(j);
+                
+                JVM.Add(new JourneyViewModel(j));
+            }
             if (journies == null)
             {
                 return NotFound();
