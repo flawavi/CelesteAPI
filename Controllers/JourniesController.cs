@@ -14,6 +14,10 @@ namespace CelesteAPI.Controllers
     public class JourniesController : Controller
     {
         private CelesteContext context;
+        public JourniesController(CelesteContext ctx)
+        {
+            context = ctx;
+        }
         // GET api/values
         [HttpGet]
         public IActionResult Get()
