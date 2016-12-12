@@ -14,6 +14,10 @@ namespace CelesteAPI.Controllers
     public class ExplorersController : Controller
     {
         private CelesteContext context;
+        public ExplorersController(CelesteContext ctx)
+        {
+            context = ctx;
+        }
         // GET api/values
         [HttpGet]
         public IActionResult Get()

@@ -14,6 +14,10 @@ namespace CelesteAPI.Controllers
     public class TriviasController : Controller
     {
         private CelesteContext context;
+        public TriviasController(CelesteContext ctx)
+        {
+            context = ctx;
+        }
         // GET api/values
         [HttpGet]
         public IActionResult Get()
