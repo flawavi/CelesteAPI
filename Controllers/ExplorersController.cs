@@ -32,13 +32,9 @@ namespace CelesteAPI.Controllers
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name="GetExplorer")]
         public IActionResult Get(int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
             try
             {
                 Explorer explorer = context.Explorer.Single(e => e.ExplorerID == id);
@@ -81,7 +77,7 @@ namespace CelesteAPI.Controllers
                     throw;
                 }
             }
-            return CreatedAtRoute("GetCustomer", new { id = explorer.ExplorerID }, explorer);
+            return CreatedAtRoute("GetExplorer", new { id = explorer.ExplorerID }, explorer);
         }
 
         // PUT api/values/5

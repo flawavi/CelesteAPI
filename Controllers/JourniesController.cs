@@ -32,7 +32,7 @@ namespace CelesteAPI.Controllers
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name="GetJourney")]
         public IActionResult Get(int id)
         {
             if (!ModelState.IsValid)
@@ -72,7 +72,7 @@ namespace CelesteAPI.Controllers
             }
             catch (DbUpdateException)
             {
-                if (ExplorerExists(journey.JourneyID))
+                if (JourneyExists(journey.JourneyID))
                 {
                     return new StatusCodeResult(StatusCodes.Status409Conflict);
                 }
@@ -81,7 +81,7 @@ namespace CelesteAPI.Controllers
                     throw;
                 }
             }
-            return CreatedAtRoute("GetCustomer", new { id = journey.JourneyID }, journey);
+            return CreatedAtRoute("GetJourney", new { id = journey.JourneyID }, journey);
         }
 
         // PUT api/values/5
