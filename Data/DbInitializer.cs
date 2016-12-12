@@ -70,7 +70,7 @@ namespace Celeste.Data
                 }
                 context.SaveChanges();
 
-                var Triv = new Trivia[]
+                var trivia = new Trivia[]
                 {
                   new Trivia {
                       JourneyID = journey.Single(j => j.Destination == "Moon").JourneyID,
@@ -338,9 +338,9 @@ namespace Celeste.Data
                   }
                 };
 
-                foreach (Trivia tr in Triv)
+                foreach (Trivia t in trivia)
                 {
-                    context.Trivia.Add(tr);
+                    context.Trivia.Add(t);
                 }
                 context.SaveChanges();
 
@@ -400,7 +400,7 @@ namespace Celeste.Data
                       Lesson = "This is a test Lesson",
                       Greeting = "This is a test Greeting",
                       Name = "Celeste",
-                      JourneyID = journey.Single(j => j.Destination == "Milky Way").JourneyID,
+                      JourneyID = journey.Single(j => j.Destination == "Milky Way Black Hole").JourneyID,
                       ImageURL = "https://s-media-cache-ak0.pinimg.com/564x/48/4c/34/484c347c62cbb2d7759adcac763a6994.jpg"
                   },
                   new CelesteHost {
@@ -446,9 +446,9 @@ namespace Celeste.Data
                   }
                 };
 
-                foreach (Explorer u in explorer)
+                foreach (Explorer e in explorer)
                 {
-                    context.Explorer.Add(u);
+                    context.Explorer.Add(e);
                 }
                 context.SaveChanges();
             }
