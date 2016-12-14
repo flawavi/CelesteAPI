@@ -38,6 +38,16 @@ namespace CelesteAPI
                     sqlConnectionString
                 )
             );
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", // allowing anyone to request anything in any way.
+                    builder => builder
+                        .AllowAnyOrigin() //this allows IP addresses/origins of anytime, could read something like ".WithOrigins("194.346.4.5" OR "acme.com")
+                        .AllowAnyMethod() //such as get/post/put etc.
+
+                        //CORS can go either in Startup OR on database methods themselves (for specificity)
+                        .AllowAnyHeader());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +55,8 @@ namespace CelesteAPI
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+
+            app.UseCors("CorsPolicy");
 
             app.UseMvc();
             DbInitializer.Initialize(app.ApplicationServices);
