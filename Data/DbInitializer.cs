@@ -428,7 +428,6 @@ namespace Celeste.Data
                       LastName = "Jones",
                       Username = "Gjere1",
                       Age = 20,
-                      Email = "Jerry@Jerry.com",
                       DateCreated = new DateTime()
                   },
                  new Explorer {
@@ -436,7 +435,6 @@ namespace Celeste.Data
                       LastName = "Jones",
                       Username = "Gjere2",
                       Age = 30,
-                      Email = "Jeremy@Jeremy.com",
                       DateCreated = new DateTime()
                   },
                   new Explorer {
@@ -444,7 +442,6 @@ namespace Celeste.Data
                       LastName = "Jones",
                       Username = "Gjere3",
                       Age = 40,
-                      Email = "Gerald@Gerald.com",
                       DateCreated = new DateTime()
                   }
                 };
