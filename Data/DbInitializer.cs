@@ -22,7 +22,7 @@ namespace Celeste.Data
         {
             using (var context = new CelesteContext(serviceProvider.GetRequiredService<DbContextOptions<CelesteContext>>()))
             {
-                // Look for any Trivia.
+                // Look for any Journies.
                 if (context.Journey.Any())
                 {
                     return;
@@ -136,30 +136,6 @@ namespace Celeste.Data
                       Point = 0
                   },
                   new Trivia {
-                      JourneyID = journey.Single(j => j.Destination == "Saturn").JourneyID,
-                      Question = "What is the average distance between Saturn and The Sun?",
-                      Answer = "888,000,000 miles",
-                      Point = 0
-                  },
-                  new Trivia {
-                      JourneyID = journey.Single(j => j.Destination == "Saturn").JourneyID,
-                      Question = "What is the approximate diameter of Saturn?",
-                      Answer = "72,370 miles",
-                      Point = 0
-                  },
-                  new Trivia {
-                      JourneyID = journey.Single(j => j.Destination == "Saturn").JourneyID,
-                      Question = "What peculiar shape surrounds Saturn's north pole?",
-                      Answer = "Hexagon",
-                      Point = 0
-                  },
-                  new Trivia {
-                      JourneyID = journey.Single(j => j.Destination == "Saturn").JourneyID,
-                      Question = "Approximately how think are the rings of Saturn?",
-                      Answer = "30 feet",
-                      Point = 0
-                  },
-                  new Trivia {
                       JourneyID = journey.Single(j => j.Destination == "Jupiter").JourneyID,
                       Question = "What is the diameter of Jupiter?",
                       Answer = "86,881 miles",
@@ -187,6 +163,36 @@ namespace Celeste.Data
                       JourneyID = journey.Single(j => j.Destination == "Jupiter").JourneyID,
                       Question = "How many Earth years are equivalent to one Jovian year?",
                       Answer = "11.86 Earth years",
+                      Point = 0
+                  },
+                  new Trivia {
+                      JourneyID = journey.Single(j => j.Destination == "Saturn").JourneyID,
+                      Question = "What is the average distance between Saturn and The Sun?",
+                      Answer = "888,000,000 miles",
+                      Point = 0
+                  },
+                  new Trivia {
+                      JourneyID = journey.Single(j => j.Destination == "Saturn").JourneyID,
+                      Question = "What is the approximate diameter of Saturn?",
+                      Answer = "72,370 miles",
+                      Point = 0
+                  },
+                  new Trivia {
+                      JourneyID = journey.Single(j => j.Destination == "Saturn").JourneyID,
+                      Question = "What peculiar shape surrounds Saturn's north pole?",
+                      Answer = "Hexagon",
+                      Point = 0
+                  },
+                  new Trivia {
+                      JourneyID = journey.Single(j => j.Destination == "Saturn").JourneyID,
+                      Question = "Approximately how think are the rings of Saturn?",
+                      Answer = "30 feet",
+                      Point = 0
+                  },
+                  new Trivia {
+                      JourneyID = journey.Single(j => j.Destination == "Saturn").JourneyID,
+                      Question = "Approximately how many Earth years does it take Saturn to revolve around the sun?",
+                      Answer = "29",
                       Point = 0
                   },
                   new Trivia {
@@ -351,65 +357,47 @@ namespace Celeste.Data
                 var celesteHost = new CelesteHost[]
                 {
                   new CelesteHost {
-                      Lesson = "This is a test Lesson",
-                      Greeting = "This is a test Greeting",
-                      Name = "Celeste",
+                      Lesson = "This is a Moon Lesson.",
                       JourneyID = journey.Single(j => j.Destination == "Moon").JourneyID,
                       ImageURL = "https://s-media-cache-ak0.pinimg.com/564x/48/4c/34/484c347c62cbb2d7759adcac763a6994.jpg"
                   },
                   new CelesteHost {
-                      Lesson = "This is a test Lesson",
-                      Greeting = "This is a test Greeting",
-                      Name = "Celeste",
+                      Lesson = "This is a Mars Lesson.",
                       JourneyID = journey.Single(j => j.Destination == "Mars").JourneyID,
                       ImageURL = "https://s-media-cache-ak0.pinimg.com/564x/48/4c/34/484c347c62cbb2d7759adcac763a6994.jpg"
                   },
                   new CelesteHost {
-                      Lesson = "This is a test Lesson",
-                      Greeting = "This is a test Greeting",
-                      Name = "Celeste",
+                      Lesson = "This is a Jupiter Lesson.",
                       JourneyID = journey.Single(j => j.Destination == "Jupiter").JourneyID,
                       ImageURL = "https://s-media-cache-ak0.pinimg.com/564x/48/4c/34/484c347c62cbb2d7759adcac763a6994.jpg"
                   },
                   new CelesteHost {
-                      Lesson = "This is a test Lesson",
-                      Greeting = "This is a test Greeting",
-                      Name = "Celeste",
+                      Lesson = "This is a Saturn Lesson.",
                       JourneyID = journey.Single(j => j.Destination == "Saturn").JourneyID,
                       ImageURL = "https://s-media-cache-ak0.pinimg.com/564x/48/4c/34/484c347c62cbb2d7759adcac763a6994.jpg"
                   },
                   new CelesteHost {
-                      Lesson = "This is a test Lesson",
-                      Greeting = "This is a test Greeting",
-                      Name = "Celeste",
+                      Lesson = "This is a Sun Lesson.",
                       JourneyID = journey.Single(j => j.Destination == "Sun").JourneyID,
                       ImageURL = "https://s-media-cache-ak0.pinimg.com/564x/48/4c/34/484c347c62cbb2d7759adcac763a6994.jpg"
                   },
                   new CelesteHost {
-                      Lesson = "This is a test Lesson",
-                      Greeting = "This is a test Greeting",
-                      Name = "Celeste",
+                      Lesson = "This is an Oort Cloud Lesson.",
                       JourneyID = journey.Single(j => j.Destination == "The Oort Cloud").JourneyID,
                       ImageURL = "https://s-media-cache-ak0.pinimg.com/564x/48/4c/34/484c347c62cbb2d7759adcac763a6994.jpg"
                   },
                   new CelesteHost {
-                      Lesson = "This is a test Lesson",
-                      Greeting = "This is a test Greeting",
-                      Name = "Celeste",
+                      Lesson = "This is an Alpha Centauri Lesson.",
                       JourneyID = journey.Single(j => j.Destination == "Alpha Centauri").JourneyID,
                       ImageURL = "https://s-media-cache-ak0.pinimg.com/564x/48/4c/34/484c347c62cbb2d7759adcac763a6994.jpg"
                   },
                   new CelesteHost {
-                      Lesson = "This is a test Lesson",
-                      Greeting = "This is a test Greeting",
-                      Name = "Celeste",
+                      Lesson = "This is a Milky Way Lesson.",
                       JourneyID = journey.Single(j => j.Destination == "Milky Way Black Hole").JourneyID,
                       ImageURL = "https://s-media-cache-ak0.pinimg.com/564x/48/4c/34/484c347c62cbb2d7759adcac763a6994.jpg"
                   },
                   new CelesteHost {
-                      Lesson = "This is a test Lesson",
-                      Greeting = "This is a test Greeting",
-                      Name = "Celeste",
+                      Lesson = "This is an Andromeda Lesson.",
                       JourneyID = journey.Single(j => j.Destination == "Andromeda").JourneyID,
                       ImageURL = "https://s-media-cache-ak0.pinimg.com/564x/48/4c/34/484c347c62cbb2d7759adcac763a6994.jpg"
                   }
@@ -423,23 +411,26 @@ namespace Celeste.Data
 
                 var explorer = new Explorer[]
                 {
-                  new Explorer {
+                    new Explorer {
+                      firebaseID = "test1",
                       FirstName = "Jerry",
                       LastName = "Jones",
                       Username = "Gjere1",
                       Age = 20,
                       DateCreated = new DateTime()
                   },
-                 new Explorer {
-                      FirstName = "Jeremy",
-                      LastName = "Jones",
+                    new Explorer {
+                      firebaseID = "test2",
+                      FirstName = "Jerome",
+                      LastName = "Jerkins",
                       Username = "Gjere2",
                       Age = 30,
                       DateCreated = new DateTime()
                   },
-                  new Explorer {
-                      FirstName = "Gerald",
-                      LastName = "Jones",
+                    new Explorer {
+                      firebaseID = "test3",
+                      FirstName = "Geraldo",
+                      LastName = "Jerfrey",
                       Username = "Gjere3",
                       Age = 40,
                       DateCreated = new DateTime()

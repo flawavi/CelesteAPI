@@ -10,10 +10,10 @@ using System.Collections.Generic;
 namespace CelesteAPI.Controllers
 {
     [Route("[controller]")]
-    public class ExplorerController : Controller
+    public class ExplorerJourneyController : Controller
     {
         private CelesteContext context;
-        public ExplorerController(CelesteContext ctx)
+        public ExplorerJourneyController(CelesteContext ctx)
         {
             context = ctx;
         }
@@ -21,31 +21,31 @@ namespace CelesteAPI.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            //select everything in the explorer table
-            IQueryable<object> explorers = from explorer in context.Explorer select explorer;
+            //select everything in the explorerjourney table
+            IQueryable<object> explorerjournies = from explorerjourney in context.ExplorerJourney select explorerjourney;
 
-            if (explorers == null)
+            if (explorerjournies == null)
             {
                 return NotFound();
             }
 
-            return Ok(explorers);
+            return Ok(explorerjournies);
         }
 
         // GET api/values/5
-        [HttpGet("{id}", Name="GetExplorer")]
-        public IActionResult Get([FromRoute]string id)
+        [HttpGet("{id}", Name="GetExplorerJourney")]
+        public IActionResult Get([FromRoute]int id)
         {
             try
             {
-                Explorer explorer = context.Explorer.Single(e => e.firebaseID == id);
+                ExplorerJourney explorerjourney = context.ExplorerJourney.Single(e => e.ExplorerID == id);
 
-                if (explorer == null)
+                if (explorerjourney == null)
                 {
                     return NotFound();
                 }
                 
-                return Ok(explorer);
+                return Ok(explorerjourney);
             }
             catch (System.InvalidOperationException ex)
             {
@@ -55,21 +55,21 @@ namespace CelesteAPI.Controllers
 
         // POST api/values
         [HttpPost]
-        public IActionResult Post([FromBody]Explorer explorer)
+        public IActionResult Post([FromBody]ExplorerJourney explorerjourney)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            context.Explorer.Add(explorer);
+            context.ExplorerJourney.Add(explorerjourney);
             try
             {
                 context.SaveChanges();
             }
             catch (DbUpdateException)
             {
-                if (ExplorerExists(explorer.ExplorerID))
+                if (ExplorerJourneyExists(explorerjourney.ExplorerJourneyID))
                 {
                     return new StatusCodeResult(StatusCodes.Status409Conflict);
                 }
@@ -78,24 +78,24 @@ namespace CelesteAPI.Controllers
                     throw;
                 }
             }
-            return CreatedAtRoute("GetExplorer", new { id = explorer.ExplorerID }, explorer);
+            return CreatedAtRoute("GetExplorerJourney", new { id = explorerjourney.ExplorerJourneyID }, explorerjourney);
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody]Explorer explorer)
+        public IActionResult Put(int id, [FromBody]ExplorerJourney explorerjourney)
         {
             if(!ModelState.IsValid)
             {
                 return BadRequest();
             }
-           if (explorer.ExplorerID != id)
+           if (explorerjourney.ExplorerJourneyID != id)
             {
                 return BadRequest();
             }
-            context.Explorer.Update(explorer);
+            context.ExplorerJourney.Update(explorerjourney);
             context.SaveChanges();
-            return Ok(explorer);
+            return Ok(explorerjourney);
         }
 
         // DELETE api/values/5
@@ -107,20 +107,20 @@ namespace CelesteAPI.Controllers
                 return BadRequest();
             }
 
-            Explorer explorer = context.Explorer.Single(e => e.ExplorerID == id);
+            ExplorerJourney explorerjourney = context.ExplorerJourney.Single(e => e.ExplorerID == id);
             
-            if(explorer == null)
+            if(explorerjourney == null)
             {
                 return NotFound();
             }
             try
             {
-                context.Explorer.Remove(explorer);
+                context.ExplorerJourney.Remove(explorerjourney);
                 context.SaveChanges();
             }
             catch (DbUpdateException)
             {
-            if (ExplorerExists(explorer.ExplorerID))
+            if (ExplorerJourneyExists(explorerjourney.ExplorerID))
                 {
                     return new StatusCodeResult(StatusCodes.Status409Conflict);
                 }
@@ -129,12 +129,12 @@ namespace CelesteAPI.Controllers
                     throw new Exception();
                 }
             }
-            return Ok(explorer);
+            return Ok(explorerjourney);
         }
         //Method: returns true if there is at least a single instance of an Explorer in Celeste.context.
-        private bool ExplorerExists(int id)
+        private bool ExplorerJourneyExists(int id)
         {
-            return context.Explorer.Count(e => e.ExplorerID == id) > 0;
+            return context.ExplorerJourney.Count(e => e.ExplorerID == id) > 0;
         }
     }
 }

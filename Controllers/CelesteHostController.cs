@@ -10,10 +10,10 @@ using System.Collections.Generic;
 namespace CelesteAPI.Controllers
 {
     [Route("[controller]")]
-    public class ExplorerController : Controller
+    public class CelesteHostController : Controller
     {
         private CelesteContext context;
-        public ExplorerController(CelesteContext ctx)
+        public CelesteHostController(CelesteContext ctx)
         {
             context = ctx;
         }
@@ -21,31 +21,31 @@ namespace CelesteAPI.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            //select everything in the explorer table
-            IQueryable<object> explorers = from explorer in context.Explorer select explorer;
+            //select everything in the celesteHost table
+            IQueryable<object> celesteList = from celeste in context.CelesteHost select celeste;
 
-            if (explorers == null)
+            if (celesteList == null)
             {
                 return NotFound();
             }
 
-            return Ok(explorers);
+            return Ok(celesteList);
         }
 
         // GET api/values/5
-        [HttpGet("{id}", Name="GetExplorer")]
-        public IActionResult Get([FromRoute]string id)
+        [HttpGet("{id}", Name="GetCeleste")]
+        public IActionResult Get([FromRoute]int id)
         {
             try
             {
-                Explorer explorer = context.Explorer.Single(e => e.firebaseID == id);
+                CelesteHost celesteHost = context.CelesteHost.Single(c => c.CelesteHostID == id);
 
-                if (explorer == null)
+                if (celesteHost == null)
                 {
                     return NotFound();
                 }
                 
-                return Ok(explorer);
+                return Ok(celesteHost);
             }
             catch (System.InvalidOperationException ex)
             {
@@ -55,21 +55,21 @@ namespace CelesteAPI.Controllers
 
         // POST api/values
         [HttpPost]
-        public IActionResult Post([FromBody]Explorer explorer)
+        public IActionResult Post([FromBody]CelesteHost celesteHost)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            context.Explorer.Add(explorer);
+            context.CelesteHost.Add(celesteHost);
             try
             {
                 context.SaveChanges();
             }
             catch (DbUpdateException)
             {
-                if (ExplorerExists(explorer.ExplorerID))
+                if (CelesteHostExists(celesteHost.CelesteHostID))
                 {
                     return new StatusCodeResult(StatusCodes.Status409Conflict);
                 }
@@ -78,24 +78,24 @@ namespace CelesteAPI.Controllers
                     throw;
                 }
             }
-            return CreatedAtRoute("GetExplorer", new { id = explorer.ExplorerID }, explorer);
+            return CreatedAtRoute("GetCelesteHost", new { id = celesteHost.CelesteHostID }, celesteHost);
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody]Explorer explorer)
+        public IActionResult Put(int id, [FromBody]CelesteHost celesteHost)
         {
             if(!ModelState.IsValid)
             {
                 return BadRequest();
             }
-           if (explorer.ExplorerID != id)
+           if (celesteHost.CelesteHostID != id)
             {
                 return BadRequest();
             }
-            context.Explorer.Update(explorer);
+            context.CelesteHost.Update(celesteHost);
             context.SaveChanges();
-            return Ok(explorer);
+            return Ok(celesteHost);
         }
 
         // DELETE api/values/5
@@ -107,20 +107,20 @@ namespace CelesteAPI.Controllers
                 return BadRequest();
             }
 
-            Explorer explorer = context.Explorer.Single(e => e.ExplorerID == id);
+            CelesteHost celesteHost = context.CelesteHost.Single(c => c.CelesteHostID == id);
             
-            if(explorer == null)
+            if(celesteHost == null)
             {
                 return NotFound();
             }
             try
             {
-                context.Explorer.Remove(explorer);
+                context.CelesteHost.Remove(celesteHost);
                 context.SaveChanges();
             }
             catch (DbUpdateException)
             {
-            if (ExplorerExists(explorer.ExplorerID))
+            if (CelesteHostExists(celesteHost.CelesteHostID))
                 {
                     return new StatusCodeResult(StatusCodes.Status409Conflict);
                 }
@@ -129,12 +129,12 @@ namespace CelesteAPI.Controllers
                     throw new Exception();
                 }
             }
-            return Ok(explorer);
+            return Ok(celesteHost);
         }
-        //Method: returns true if there is at least a single instance of an Explorer in Celeste.context.
-        private bool ExplorerExists(int id)
+        //Method: returns true if there is at least a single instance of an CelesteHost in Celeste.context.
+        private bool CelesteHostExists(int id)
         {
-            return context.Explorer.Count(e => e.ExplorerID == id) > 0;
+            return context.CelesteHost.Count(c=> c.CelesteHostID == id) > 0;
         }
     }
 }

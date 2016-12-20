@@ -8,8 +8,6 @@ namespace Celeste.Models
         [Key]
         public int CelesteHostID {get;set;}
         public int JourneyID {get;set;}
-        public string Name {get;set;}
-        public string Greeting {get;set;}
         public string Lesson {get;set;}
         public string ImageURL {get;set;}
     }
