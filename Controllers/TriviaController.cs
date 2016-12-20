@@ -51,7 +51,7 @@ namespace CelesteAPI.Controllers
             }
             try
             {
-                Trivia trivia = context.Trivia.Single(t => t.TriviaID == id);
+                List<Trivia> trivia = context.Trivia.Where(t => t.JourneyID == id).ToList();
 
                 if (trivia == null)
                 {

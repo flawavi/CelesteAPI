@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace CelesteAPI.Migrations
 {
-    public partial class SeedDatabase : Migration
+    public partial class InitialMigrations : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,11 +15,9 @@ namespace CelesteAPI.Migrations
                 {
                     CelesteHostID = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    Greeting = table.Column<string>(nullable: true),
                     ImageURL = table.Column<string>(nullable: true),
                     JourneyID = table.Column<int>(nullable: false),
-                    Lesson = table.Column<string>(nullable: true),
-                    Name = table.Column<string>(nullable: true)
+                    Lesson = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -34,10 +32,10 @@ namespace CelesteAPI.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     Age = table.Column<int>(nullable: false),
                     DateCreated = table.Column<DateTime>(nullable: false, defaultValueSql: "now()"),
-                    Email = table.Column<string>(nullable: true),
-                    FirstName = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true),
-                    Username = table.Column<string>(nullable: true)
+                    FirstName = table.Column<string>(nullable: false),
+                    LastName = table.Column<string>(nullable: false),
+                    Username = table.Column<string>(nullable: false),
+                    firebaseID = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {

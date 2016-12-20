@@ -15,6 +15,8 @@ namespace Celeste.Models
         [Required]
         public string Username {get;set;}
         [Required]
+        public string firebaseID {get;set;}
+        [Required]
         public int Age {get;set;}
         public DateTime DateCreated {get;set;}
         public ICollection<ExplorerResponse> ExplorerResponses {get;set;}

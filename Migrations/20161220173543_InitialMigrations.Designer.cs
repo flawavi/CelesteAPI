@@ -8,8 +8,8 @@ using Celeste.Data;
 namespace CelesteAPI.Migrations
 {
     [DbContext(typeof(CelesteContext))]
-    [Migration("20161211234951_SeedDatabase")]
-    partial class SeedDatabase
+    [Migration("20161220173543_InitialMigrations")]
+    partial class InitialMigrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,15 +22,11 @@ namespace CelesteAPI.Migrations
                     b.Property<int>("CelesteHostID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Greeting");
-
                     b.Property<string>("ImageURL");
 
                     b.Property<int>("JourneyID");
 
                     b.Property<string>("Lesson");
-
-                    b.Property<string>("Name");
 
                     b.HasKey("CelesteHostID");
 
@@ -48,13 +44,17 @@ namespace CelesteAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasDefaultValueSql("now()");
 
-                    b.Property<string>("Email");
+                    b.Property<string>("FirstName")
+                        .IsRequired();
 
-                    b.Property<string>("FirstName");
+                    b.Property<string>("LastName")
+                        .IsRequired();
 
-                    b.Property<string>("LastName");
+                    b.Property<string>("Username")
+                        .IsRequired();
 
-                    b.Property<string>("Username");
+                    b.Property<string>("firebaseID")
+                        .IsRequired();
 
                     b.HasKey("ExplorerID");
 
