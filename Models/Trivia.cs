@@ -11,6 +11,7 @@ namespace Celeste.Models
         public Journey Journey {get;set;}
         public string Question {get;set;}
         public string Answer {get;set;}
+        public string FakeAnswer {get;set;}
         public int Point {get;set;} 
     }
 }

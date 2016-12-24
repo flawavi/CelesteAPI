@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace CelesteAPI.Migrations
 {
-    public partial class InitialMigrations : Migration
+    public partial class AddedLessonsToDbInitializer : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

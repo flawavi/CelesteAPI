@@ -8,8 +8,8 @@ using Celeste.Data;
 namespace CelesteAPI.Migrations
 {
     [DbContext(typeof(CelesteContext))]
-    [Migration("20161220173543_InitialMigrations")]
-    partial class InitialMigrations
+    [Migration("20161222201153_AddedLessonsToDbInitializer")]
+    partial class AddedLessonsToDbInitializer
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
