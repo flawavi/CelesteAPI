@@ -5,10 +5,24 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace CelesteAPI.Migrations
 {
-    public partial class InitialMigrations : Migration
+    public partial class TestingSeedDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Answers",
+                columns: table => new
+                {
+                    AnswersID = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    Answer = table.Column<string>(nullable: true),
+                    QuestionsID = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Answers", x => x.AnswersID);
+                });
+
             migrationBuilder.CreateTable(
                 name: "CelesteHost",
                 columns: table => new
@@ -40,6 +54,19 @@ namespace CelesteAPI.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Explorer", x => x.ExplorerID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "FakeAnswers",
+                columns: table => new
+                {
+                    FakeAnswersID = table.Column<string>(nullable: false),
+                    FakeAnswer = table.Column<string>(nullable: true),
+                    QuestionsID = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FakeAnswers", x => x.FakeAnswersID);
                 });
 
             migrationBuilder.CreateTable(
@@ -114,21 +141,20 @@ namespace CelesteAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Trivia",
+                name: "Questions",
                 columns: table => new
                 {
-                    TriviaID = table.Column<int>(nullable: false)
+                    QuestionsID = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    Answer = table.Column<string>(nullable: true),
                     JourneyID = table.Column<int>(nullable: false),
                     Point = table.Column<int>(nullable: false),
                     Question = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Trivia", x => x.TriviaID);
+                    table.PrimaryKey("PK_Questions", x => x.QuestionsID);
                     table.ForeignKey(
-                        name: "FK_Trivia_Journey_JourneyID",
+                        name: "FK_Questions_Journey_JourneyID",
                         column: x => x.JourneyID,
                         principalTable: "Journey",
                         principalColumn: "JourneyID",
@@ -156,13 +182,16 @@ namespace CelesteAPI.Migrations
                 column: "ExplorerID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Trivia_JourneyID",
-                table: "Trivia",
+                name: "IX_Questions_JourneyID",
+                table: "Questions",
                 column: "JourneyID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Answers");
+
             migrationBuilder.DropTable(
                 name: "CelesteHost");
 
@@ -173,7 +202,10 @@ namespace CelesteAPI.Migrations
                 name: "ExplorerResponse");
 
             migrationBuilder.DropTable(
-                name: "Trivia");
+                name: "FakeAnswers");
+
+            migrationBuilder.DropTable(
+                name: "Questions");
 
             migrationBuilder.DropTable(
                 name: "Journey");

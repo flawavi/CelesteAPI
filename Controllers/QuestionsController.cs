@@ -12,10 +12,10 @@ using System.Threading.Tasks;
 namespace CelesteAPI.Controllers
 {
     [Route("[controller]")]
-    public class TriviaController : Controller
+    public class QuestionsController : Controller
     {
         private CelesteContext context;
-        public TriviaController(CelesteContext ctx)
+        public QuestionsController(CelesteContext ctx)
         {
             context = ctx;
         }
@@ -24,16 +24,16 @@ namespace CelesteAPI.Controllers
         public async Task<IActionResult> Get()
         {
             //select everything in the explorer table
-            List<Trivia> trivias = await context.Trivia.ToListAsync();
-            List<TriviaViewModel> TVM = new List<TriviaViewModel>();
-            foreach(Trivia t in trivias)
+            List<Questions> questions = await context.Questions.ToListAsync();
+            List<QuestionsViewModel> TVM = new List<QuestionsViewModel>();
+            foreach(Questions q in questions)
             {
-                Journey result = await context.Journey.Where(j => j.JourneyID == t.JourneyID).SingleOrDefaultAsync();
-                TriviaViewModel model = new TriviaViewModel(t);
+                Journey result = await context.Journey.Where(j => j.JourneyID == q.JourneyID).SingleOrDefaultAsync();
+                QuestionsViewModel model = new QuestionsViewModel(q);
                 model.Journey = new JourneyViewModel(result);
                 TVM.Add(model);
             }
-            if (trivias == null)
+            if (questions == null)
             {
                 return NotFound();
             }
@@ -51,7 +51,7 @@ namespace CelesteAPI.Controllers
             }
             try
             {
-                List<Trivia> trivia = context.Trivia.Where(t => t.JourneyID == id).ToList();
+                List<Questions> trivia = context.Questions.Where(t => t.JourneyID == id).ToList();
 
                 if (trivia == null)
                 {
@@ -68,21 +68,21 @@ namespace CelesteAPI.Controllers
 
         // POST api/values
         [HttpPost]
-        public IActionResult Post([FromBody]Trivia trivia)
+        public IActionResult Post([FromBody]Questions question)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            context.Trivia.Add(trivia);
+            context.Questions.Add(question);
             try
             {
                 context.SaveChanges();
             }
             catch (DbUpdateException)
             {
-                if (TriviaExists(trivia.TriviaID))
+                if (QuestionsExists(question.QuestionsID))
                 {
                     return new StatusCodeResult(StatusCodes.Status409Conflict);
                 }
@@ -91,24 +91,24 @@ namespace CelesteAPI.Controllers
                     throw;
                 }
             }
-            return CreatedAtRoute("GetTrivia", new { id = trivia.TriviaID }, trivia);
+            return CreatedAtRoute("GetTrivia", new { id = question.QuestionsID }, question);
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody]Trivia trivia)
+        public IActionResult Put(int id, [FromBody]Questions question)
         {
             if(!ModelState.IsValid)
             {
                 return BadRequest();
             }
-           if (trivia.TriviaID != id)
+           if (question.QuestionsID != id)
             {
                 return BadRequest();
             }
-            context.Trivia.Update(trivia);
+            context.Questions.Update(question);
             context.SaveChanges();
-            return Ok(trivia);
+            return Ok(question);
         }
 
         // DELETE api/values/5
@@ -120,20 +120,20 @@ namespace CelesteAPI.Controllers
                 return BadRequest();
             }
 
-            Trivia trivia = context.Trivia.Single(t => t.TriviaID == id);
+            Questions question = context.Questions.Single(q => q.QuestionsID == id);
             
-            if(trivia == null)
+            if(question == null)
             {
                 return NotFound();
             }
             try
             {
-                context.Trivia.Remove(trivia);
+                context.Questions.Remove(question);
                 context.SaveChanges();
             }
             catch (DbUpdateException)
             {
-            if (TriviaExists(trivia.TriviaID))
+            if (QuestionsExists(question.QuestionsID))
                 {
                     return new StatusCodeResult(StatusCodes.Status409Conflict);
                 }
@@ -142,12 +142,12 @@ namespace CelesteAPI.Controllers
                     throw new Exception();
                 }
             }
-            return Ok(trivia);
+            return Ok(question);
         }
         //Method: returns true if there is at least a single instance of an Explorer in Celeste.context.
-        private bool TriviaExists(int id)
+        private bool QuestionsExists(int id)
         {
-            return context.Trivia.Count(t => t.TriviaID == id) > 0;
+            return context.Questions.Count(q => q.QuestionsID == id) > 0;
         }
     }
 }
