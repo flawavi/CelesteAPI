@@ -3,15 +3,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Celeste.Models
 {
-    public class Trivia 
+    public class Questions 
     {
         [Key]
-        public int TriviaID {get;set;}
+        public int QuestionsID {get;set;}
         public int JourneyID {get;set;}
         public Journey Journey {get;set;}
         public string Question {get;set;}
-        public string Answer {get;set;}
-        public string FakeAnswer {get;set;}
         public int Point {get;set;} 
     }
 }

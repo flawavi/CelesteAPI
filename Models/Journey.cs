@@ -10,6 +10,6 @@ namespace Celeste.Models
         public int JourneyID {get;set;}
         public string Name {get;set;}
         public string Destination {get;set;}
-        public ICollection<Trivia> TriviaList {get;set;}
+        public ICollection<Questions> QuestionList {get;set;}
     }
 }

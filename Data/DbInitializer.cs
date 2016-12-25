@@ -73,285 +73,1340 @@ namespace Celeste.Data
                 }
                 context.SaveChanges();
 
-                var trivia = new Trivia[]
+                var questions = new Questions[]
                 {
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Moon").JourneyID,
                       Question = "What is the radius of the moon?",
-                      Answer = "1,080 miles",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Moon").JourneyID,
                       Question = "What is the average distance between the Moon and the Earth?",
-                      Answer = "240,000 miles",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Moon").JourneyID,
-                      Question = "True or false? All of the other planets could fit neatly between the Earth and Moon.",
-                      Answer = "True",
+                      Question = "How many of the planets (not including Earth) can fit between the Earth and the Moon?",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Moon").JourneyID,
                       Question = "About how many Earth days does it take the Moon to rotate on its axis?",
-                      Answer = "27",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Moon").JourneyID,
                       Question = "What is the approximate age of the Moon?",
-                      Answer = "4,500,000,000 years old.",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Mars").JourneyID,
                       Question = "What is the average distance between Mars and the Sun?",
-                      Answer = "1,420,000 miles",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Mars").JourneyID,
                       Question = "What two elements are primarily responsible for Mars' red hue?",
-                      Answer = "Iron and Oxygen",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Mars").JourneyID,
                       Question = "What is the diameter of Mars?",
-                      Answer = "4,200 miles",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Mars").JourneyID,
                       Question = "What are the names of the Martian moons?",
-                      Answer = "Phobos and Deimos",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Mars").JourneyID,
                       Question = "What is the name of the giant canyon on Mars?",
-                      Answer = "Valles Marineris",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Jupiter").JourneyID,
                       Question = "What is the diameter of Jupiter?",
-                      Answer = "86,880 miles",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Jupiter").JourneyID,
                       Question = "How many moons does Jupiter have?",
-                      Answer = "67",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Jupiter").JourneyID,
                       Question = "The gas giant Jupiter is composed of 90% ____ and just under 10% ____?",
-                      Answer = "Hydrogen Helium",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Jupiter").JourneyID,
                       Question = "What is the average distance between Jupiter and the Sun?",
-                      Answer = "480,000,000 miles",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Jupiter").JourneyID,
                       Question = "What is the name of the enormous storm on the surface of Jupiter. ",
-                      Answer = "The Great Red Spot",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Saturn").JourneyID,
                       Question = "What is the average distance between Saturn and The Sun?",
-                      Answer = "888,200,000 miles",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Saturn").JourneyID,
                       Question = "What is the approximate diameter of Saturn?",
-                      Answer = "72,370 miles",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Saturn").JourneyID,
                       Question = "What peculiar shape surrounds Saturn's north pole?",
-                      Answer = "Hexagon",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Saturn").JourneyID,
                       Question = "Approximately how think are the rings of Saturn?",
-                      Answer = "30 feet",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Saturn").JourneyID,
                       Question = "What is the name of Saturn's largest moon?",
-                      Answer = "Titan   ",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Sun").JourneyID,
                       Question = "What is the diameter of the Sun?",
-                      Answer = "865,000 miles",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Sun").JourneyID,
                       Question = "What is the average distance between the Sun and Earth?",
-                      Answer = "93,000,000 miles",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Sun").JourneyID,
                       Question = "What is the surface temperature of the Sun?",
-                      Answer = "9,940°F",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Sun").JourneyID,
                       Question = "How long does it take light to reach Earth from the Sun?",
-                      Answer = "8 minutes 20 seconds",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Sun").JourneyID,
                       Question = "Approximately how many Earths would fit inside the Sun?",
-                      Answer = "1,300,000",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "The Oort Cloud").JourneyID,
                       Question = "The Oort cloud defines the boundary of what?",
-                      Answer = "The Solar System",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "The Oort Cloud").JourneyID,
                       Question = "At its closest point, how far away is the Oort Cloud from the center of the Solar System (Sun)? And its farthest?",
-                      Answer = ".8 ly, 3.2 ly",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "The Oort Cloud").JourneyID,
                       Question = "The Oort Cloud is responsible for producing what types of objects that fly by Earth periodically?",
-                      Answer = "Comets",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "The Oort Cloud").JourneyID,
                       Question = "What is the basic shape of the Oort Cloud?",
-                      Answer = "A Sphere",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "The Oort Cloud").JourneyID,
                       Question = "What is the estimated number of objects existing in the Oort Cloud?",
-                      Answer = "2,000,000,000,000",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Alpha Centauri").JourneyID,
                       Question = "Alpha Centauri is a star system consisting of how many stars?",
-                      Answer = "3",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Alpha Centauri").JourneyID,
                       Question = "How far away is Alpha Centauri from us?",
-                      Answer = "4.37 ly",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Alpha Centauri").JourneyID,
                       Question = "Alpha Centauri forms the brightest 'star' in which constellation?",
-                      Answer = "Centaurus",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Alpha Centauri").JourneyID,
                       Question = "What is the surface temperature of Alpha Centauri?",
-                      Answer = "9,940°F",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Alpha Centauri").JourneyID,
                       Question = "How many stars are brighter than Alpha Centauri in the night sky?",
-                      Answer = "2",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Milky Way Black Hole").JourneyID,
                       Question = "Approximately how wide is the Milky Way?",
-                      Answer = "100,000 ly",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Milky Way Black Hole").JourneyID,
                       Question = "There are at least how many stars in the Milky Way Galaxy?",
-                      Answer = "100,000,000,000",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Milky Way Black Hole").JourneyID,
                       Question = "What type of galaxy is the Milky Way?",
-                      Answer = "Spiral Galaxy",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Milky Way Black Hole").JourneyID,
                       Question = "Likely what is Saggitarius A, the object at the center of the Milky Way?",
-                      Answer = "A supermassive black hole",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Milky Way Black Hole").JourneyID,
                       Question = "How massive is Saggitarius A (in solar masses)?",
-                      Answer = "4,200,000 solar masses",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Andromeda").JourneyID,
                       Question = "What is Andromeda?",
-                      Answer = "A spiral galaxy",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Andromeda").JourneyID,
                       Question = "Approximately how far away is Andromeda from The Milky Way?",
-                      Answer = "2,500,000 ly",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Andromeda").JourneyID,
                       Question = "Approximately how far across is the Andromeda Galaxy?",
-                      Answer = "220,000 ly",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Andromeda").JourneyID,
                       Question = "The Milky Way and Andromeda Galaxies are expected to collide in how many years?",
-                      Answer = "4,500,000 years",
                       Point = 0
                   },
-                  new Trivia {
+                  new Questions {
                       JourneyID = journey.Single(j => j.Destination == "Andromeda").JourneyID,
                       Question = "Approximately how many stars are in the Andromeda Galaxy?",
-                      Answer = "1,000,000,000,000 stars",
                       Point = 0
                   }
                 };
 
-                foreach (Trivia t in trivia)
+                foreach (Questions q in questions)
                 {
-                    context.Trivia.Add(t);
+                    context.Questions.Add(q);
                 }
                 context.SaveChanges();
+
+                var answers = new Answers[]
+                {
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "What is the radius of the moon?").QuestionsID,
+                      Answer = "1,080 miles"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "What is the average distance between the Moon and the Earth?").QuestionsID,
+                      Answer = "240,000 miles"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "How many of the planets (not including Earth) can fit between the Earth and the Moon?").QuestionsID,
+                      Answer = "All of them"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "About how many Earth days does it take the Moon to rotate on its axis?").QuestionsID,
+                      Answer = "27"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "What is the approximate age of the Moon?").QuestionsID,
+                      Answer = "4,500,000,000 years"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "What is the average distance between Mars and the Sun?").QuestionsID,
+                      Answer = "1,420,000 miles"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "What two elements are primarily responsible for Mars' red hue?").QuestionsID,
+                      Answer = "Iron and Oxygen"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "What is the diameter of Mars?").QuestionsID,
+                      Answer = "4,200 miles"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "What are the names of the Martian moons?").QuestionsID,
+                      Answer = "Phobos and Deimos"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "What is the name of the giant canyon on Mars?").QuestionsID,
+                      Answer = "Valles Marineris"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "What is the diameter of Jupiter?").QuestionsID,
+                      Answer = "86,880 miles"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "How many moons does Jupiter have?").QuestionsID,
+                      Answer = "67"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "The gas giant Jupiter is composed of 90% ____ and just under 10% ____?").QuestionsID,
+                      Answer = "Hydrogen Helium"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "What is the average distance between Jupiter and the Sun?").QuestionsID,
+                      Answer = "480,000,000 miles"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "What is the name of the enormous storm on the surface of Jupiter?").QuestionsID,
+                      Answer = "The Great Red Spot"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "What is the average distance between Saturn and The Sun?").QuestionsID,
+                      Answer = "888,200,000 miles"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "What is the approximate diameter of Saturn?").QuestionsID,
+                      Answer = "72,370 miles"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "What peculiar shape surrounds Saturn's north pole?").QuestionsID,
+                      Answer = "Hexagon"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "Approximately how think are the rings of Saturn?").QuestionsID,
+                      Answer = "30 feet"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "What is the name of Saturn's largest moon?").QuestionsID,
+                      Answer = "Titan"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "What is the diameter of the Sun?").QuestionsID,
+                      Answer = "865,000 miles"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "What is the average distance between the Sun and Earth?").QuestionsID,
+                      Answer = "93,000,000 miles"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "What is the surface temperature of the Sun?").QuestionsID,
+                      Answer = "9,940°F"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "How long does it take light to reach Earth from the Sun?").QuestionsID,
+                      Answer = "8 minutes 20 seconds"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "Approximately how many Earths would fit inside the Sun?").QuestionsID,
+                      Answer = "1,300,000"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "The Oort cloud defines the boundary of what?").QuestionsID,
+                      Answer = "The Solar System"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "At its closest point, how far away is the Oort Cloud from the center of the Solar System (Sun)? And its farthest?").QuestionsID,
+                      Answer = "0.8 ly, 3.2 ly"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "The Oort Cloud is responsible for producing what types of objects that fly by Earth periodically?").QuestionsID,
+                      Answer = "Comets"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "What is the basic shape of the Oort Cloud?").QuestionsID,
+                      Answer = "A Sphere"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "What is the estimated number of objects existing in the Oort Cloud?").QuestionsID,
+                      Answer = "2,000,000,000,000"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "Alpha Centauri is a star system consisting of how many stars?").QuestionsID,
+                      Answer = "3"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "How far away is Alpha Centauri from us?").QuestionsID,
+                      Answer = "4.37 ly"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "Alpha Centauri forms the brightest 'star' in which constellation?").QuestionsID,
+                      Answer = "Centaurus"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "What is the surface temperature of Alpha Centauri?").QuestionsID,
+                      Answer = "9,940°F"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "How many stars are brighter than Alpha Centauri in the night sky?").QuestionsID,
+                      Answer = "2"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "Approximately how wide is the Milky Way?").QuestionsID,
+                      Answer = "100,000 ly"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "There are at least how many stars in the Milky Way Galaxy?").QuestionsID,
+                      Answer = "100,000,000,000"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "What type of galaxy is the Milky Way?").QuestionsID,
+                      Answer = "Spiral Galaxy"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "Likely what is Saggitarius A, the object at the center of the Milky Way?").QuestionsID,
+                      Answer = "A supermassive black hole"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "How massive is Saggitarius A (in solar masses)?").QuestionsID,
+                      Answer = "4,200,000 solar masses"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "What is Andromeda?").QuestionsID,
+                      Answer = "A spiral galaxy"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "Approximately how far away is Andromeda from The Milky Way?").QuestionsID,
+                      Answer = "2,500,000 ly"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "Approximately how far across is the Andromeda Galaxy?").QuestionsID,
+                      Answer = "220,000 ly"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "The Milky Way and Andromeda Galaxies are expected to collide in how many years?").QuestionsID,
+                      Answer = "4,500,000 years"
+                  },
+                  new Answers {
+                      QuestionsID = questions.Single(q => q.Question == "Approximately how many stars are in the Andromeda Galaxy?").QuestionsID,
+                      Answer = "1,000,000,000,000 stars"
+                  }
+                };
+
+                  foreach (Answers a in answers)
+                  {
+                      context.Answers.Add(a);
+                  }
+                  context.SaveChanges();
+
+                var fakeAnswers = new FakeAnswers[]
+                {
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "2,100 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the radius of the moon?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "600 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the radius of the moon?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "5,0200 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the radius of the moon?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "10,500 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the radius of the moon?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "1,000,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the average distance between the Moon and the Earth?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "5,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the average distance between the Moon and the Earth?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "750,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the average distance between the Moon and the Earth?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "500 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the average distance between the Moon and the Earth?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "1,000,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "True or false? All of the other planets could fit neatly between the Earth and Moon.").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "5,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "True or false? All of the other planets could fit neatly between the Earth and Moon.").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "750,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "True or false? All of the other planets could fit neatly between the Earth and Moon.").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "500 miles",
+                        QuestionsID = questions.Single(q => q.Question == "True or false? All of the other planets could fit neatly between the Earth and Moon.").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "1 day",
+                        QuestionsID = questions.Single(q => q.Question == "About how many Earth days does it take the Moon to rotate on its axis?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "21 days",
+                        QuestionsID = questions.Single(q => q.Question == "About how many Earth days does it take the Moon to rotate on its axis?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "36 days",
+                        QuestionsID = questions.Single(q => q.Question == "About how many Earth days does it take the Moon to rotate on its axis?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "42 days",
+                        QuestionsID = questions.Single(q => q.Question == "About how many Earth days does it take the Moon to rotate on its axis?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "10,000 years",
+                        QuestionsID = questions.Single(q => q.Question == "What is the approximate age of the Moon?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "5,000,000 years",
+                        QuestionsID = questions.Single(q => q.Question == "What is the approximate age of the Moon?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "1,000,000,000 years",
+                        QuestionsID = questions.Single(q => q.Question == "What is the approximate age of the Moon?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "250,000,000 years",
+                        QuestionsID = questions.Single(q => q.Question == "What is the approximate age of the Moon?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "2,000,000,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the average distance between Mars and the Sun?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "200,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the average distance between Mars and the Sun?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "5,000,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the average distance between Mars and the Sun?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "750,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the average distance between Mars and the Sun?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Iron and Nitrogen",
+                        QuestionsID = questions.Single(q => q.Question == "What two elements are primarily responsible for Mars' red hue?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Oxygen and Helium",
+                        QuestionsID = questions.Single(q => q.Question == "What two elements are primarily responsible for Mars' red hue?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Helium and Nitrogen",
+                        QuestionsID = questions.Single(q => q.Question == "What two elements are primarily responsible for Mars' red hue?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Iron and Helium",
+                        QuestionsID = questions.Single(q => q.Question == "What two elements are primarily responsible for Mars' red hue?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "800 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the diameter of Mars?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "25,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the diameter of Mars?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "8,400 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the diameter of Mars?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "12,300 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the diameter of Mars?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Phoebe and Dunbar",
+                        QuestionsID = questions.Single(q => q.Question == "What are the names of the Martian moons?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Phyllis and Delilah",
+                        QuestionsID = questions.Single(q => q.Question == "What are the names of the Martian moons?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Photon and Deus",
+                        QuestionsID = questions.Single(q => q.Question == "What are the names of the Martian moons?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Phoenix and Dynamo",
+                        QuestionsID = questions.Single(q => q.Question == "What are the names of the Martian moons?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Valar Morghulis",
+                        QuestionsID = questions.Single(q => q.Question == "What is the name of the giant canyon on Mars?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Valley of the Mongols",
+                        QuestionsID = questions.Single(q => q.Question == "What is the name of the giant canyon on Mars?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Victus Monumentos",
+                        QuestionsID = questions.Single(q => q.Question == "What is the name of the giant canyon on Mars?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Mount Vastus",
+                        QuestionsID = questions.Single(q => q.Question == "What is the name of the giant canyon on Mars?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "100,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the diameter of Jupiter?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "250,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the diameter of Jupiter?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "33,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the diameter of Jupiter?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "52,250 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the diameter of Jupiter?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "24",
+                        QuestionsID = questions.Single(q => q.Question == "How many moons does Jupiter have?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "1",
+                        QuestionsID = questions.Single(q => q.Question == "How many moons does Jupiter have?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "9",
+                        QuestionsID = questions.Single(q => q.Question == "How many moons does Jupiter have?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "77",
+                        QuestionsID = questions.Single(q => q.Question == "How many moons does Jupiter have?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Helium Hydrogen",
+                        QuestionsID = questions.Single(q => q.Question == "The gas giant Jupiter is composed of 90% ____ and just under 10% ____?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Helium Oxygen",
+                        QuestionsID = questions.Single(q => q.Question == "The gas giant Jupiter is composed of 90% ____ and just under 10% ____?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Oxygen Hydrogen",
+                        QuestionsID = questions.Single(q => q.Question == "The gas giant Jupiter is composed of 90% ____ and just under 10% ____?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Hydrogen Nitrogen",
+                        QuestionsID = questions.Single(q => q.Question == "The gas giant Jupiter is composed of 90% ____ and just under 10% ____?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "250,000,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the average distance between Jupiter and the Sun?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "1,000,000,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the average distance between Jupiter and the Sun?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "640,000,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the average distance between Jupiter and the Sun?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "100,000,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the average distance between Jupiter and the Sun?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "The Great Big Storm",
+                        QuestionsID = questions.Single(q => q.Question == "What is the name of the enormous storm on the surface of Jupiter?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "The Swirling Storm",
+                        QuestionsID = questions.Single(q => q.Question == "What is the name of the enormous storm on the surface of Jupiter?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "The Red Storm",
+                        QuestionsID = questions.Single(q => q.Question == "What is the name of the enormous storm on the surface of Jupiter?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "The Spot",
+                        QuestionsID = questions.Single(q => q.Question == "What is the name of the enormous storm on the surface of Jupiter?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "666,200,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the average distance between Saturn and The Sun?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "500,000,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the average distance between Saturn and The Sun?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "1,200,000,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the average distance between Saturn and The Sun?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "888,2000,000,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the average distance between Saturn and The Sun?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "27,370 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the approximate diameter of Saturn?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "37,720 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the approximate diameter of Saturn?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "98,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the approximate diameter of Saturn?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "86,870 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the approximate diameter of Saturn?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Circle",
+                        QuestionsID = questions.Single(q => q.Question == "What peculiar shape surrounds Saturn's north pole?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Octagon",
+                        QuestionsID = questions.Single(q => q.Question == "What peculiar shape surrounds Saturn's north pole?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Triangle",
+                        QuestionsID = questions.Single(q => q.Question == "What peculiar shape surrounds Saturn's north pole?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Sphere",
+                        QuestionsID = questions.Single(q => q.Question == "What peculiar shape surrounds Saturn's north pole?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "1000 feet",
+                        QuestionsID = questions.Single(q => q.Question == "Approximately how think are the rings of Saturn?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "500 feet",
+                        QuestionsID = questions.Single(q => q.Question == "Approximately how think are the rings of Saturn?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "3 foot",
+                        QuestionsID = questions.Single(q => q.Question == "Approximately how think are the rings of Saturn?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "10 feet",
+                        QuestionsID = questions.Single(q => q.Question == "Approximately how think are the rings of Saturn?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Giant",
+                        QuestionsID = questions.Single(q => q.Question == "What is the name of Saturn's largest moon?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Titus",
+                        QuestionsID = questions.Single(q => q.Question == "What is the name of Saturn's largest moon?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Triton",
+                        QuestionsID = questions.Single(q => q.Question == "What is the name of Saturn's largest moon?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Thor",
+                        QuestionsID = questions.Single(q => q.Question == "What is the name of Saturn's largest moon?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "585,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the diameter of the Sun?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "385,800 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the diameter of the Sun?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "8,650,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the diameter of the Sun?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "3,858,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the diameter of the Sun?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "50,000,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the average distance between the Sun and Earth?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "93,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the average distance between the Sun and Earth?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "10,000,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the average distance between the Sun and Earth?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "356,000,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "What is the average distance between the Sun and Earth?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "20,000°F",
+                        QuestionsID = questions.Single(q => q.Question == "What is the surface temperature of the Sun?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "1,000,000°F",
+                        QuestionsID = questions.Single(q => q.Question == "What is the surface temperature of the Sun?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "93,000°F",
+                        QuestionsID = questions.Single(q => q.Question == "What is the surface temperature of the Sun?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "200,000°F",
+                        QuestionsID = questions.Single(q => q.Question == "What is the surface temperature of the Sun?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Instantaneous",
+                        QuestionsID = questions.Single(q => q.Question == "How long does it take light to reach Earth from the Sun?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "1 minute 20 seconds",
+                        QuestionsID = questions.Single(q => q.Question == "How long does it take light to reach Earth from the Sun?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "10 minutes 35 seconds",
+                        QuestionsID = questions.Single(q => q.Question == "How long does it take light to reach Earth from the Sun?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "22 minutes 43 seconds",
+                        QuestionsID = questions.Single(q => q.Question == "How long does it take light to reach Earth from the Sun?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "1,300",
+                        QuestionsID = questions.Single(q => q.Question == "Approximately how many Earths would fit inside the Sun?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "2,000,000",
+                        QuestionsID = questions.Single(q => q.Question == "Approximately how many Earths would fit inside the Sun?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "300",
+                        QuestionsID = questions.Single(q => q.Question == "Approximately how many Earths would fit inside the Sun?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "130,000",
+                        QuestionsID = questions.Single(q => q.Question == "Approximately how many Earths would fit inside the Sun?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "The Sun",
+                        QuestionsID = questions.Single(q => q.Question == "The Oort cloud defines the boundary of what?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "The universe",
+                        QuestionsID = questions.Single(q => q.Question == "The Oort cloud defines the boundary of what?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "The Asteroid Belt",
+                        QuestionsID = questions.Single(q => q.Question == "The Oort cloud defines the boundary of what?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "The Milky Way",
+                        QuestionsID = questions.Single(q => q.Question == "The Oort cloud defines the boundary of what?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "2 ly, 5 ly",
+                        QuestionsID = questions.Single(q => q.Question == "At its closest point, how far away is the Oort Cloud from the center of the Solar System (Sun)? And its farthest?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "0.5 ly, 1.6 ly",
+                        QuestionsID = questions.Single(q => q.Question == "At its closest point, how far away is the Oort Cloud from the center of the Solar System (Sun)? And its farthest?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "1 ly, 2 ly",
+                        QuestionsID = questions.Single(q => q.Question == "At its closest point, how far away is the Oort Cloud from the center of the Solar System (Sun)? And its farthest?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "0.1 ly, 2.3 ly",
+                        QuestionsID = questions.Single(q => q.Question == "At its closest point, how far away is the Oort Cloud from the center of the Solar System (Sun)? And its farthest?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Planets",
+                        QuestionsID = questions.Single(q => q.Question == "The Oort Cloud is responsible for producing what types of objects that fly by Earth periodically?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Particles",
+                        QuestionsID = questions.Single(q => q.Question == "The Oort Cloud is responsible for producing what types of objects that fly by Earth periodically?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Galaxies",
+                        QuestionsID = questions.Single(q => q.Question == "The Oort Cloud is responsible for producing what types of objects that fly by Earth periodically?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Moons",
+                        QuestionsID = questions.Single(q => q.Question == "The Oort Cloud is responsible for producing what types of objects that fly by Earth periodically?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "A Taurus",
+                        QuestionsID = questions.Single(q => q.Question == "What is the basic shape of the Oort Cloud?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "A Circle",
+                        QuestionsID = questions.Single(q => q.Question == "What is the basic shape of the Oort Cloud?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "A Ring",
+                        QuestionsID = questions.Single(q => q.Question == "What is the basic shape of the Oort Cloud?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "A Box",
+                        QuestionsID = questions.Single(q => q.Question == "What is the basic shape of the Oort Cloud?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "2,000,000,000",
+                        QuestionsID = questions.Single(q => q.Question == "What is the estimated number of objects existing in the Oort Cloud?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "1,500,000",
+                        QuestionsID = questions.Single(q => q.Question == "What is the estimated number of objects existing in the Oort Cloud?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "9,900,000",
+                        QuestionsID = questions.Single(q => q.Question == "What is the estimated number of objects existing in the Oort Cloud?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "1,000,000,000,000",
+                        QuestionsID = questions.Single(q => q.Question == "What is the estimated number of objects existing in the Oort Cloud?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "2",
+                        QuestionsID = questions.Single(q => q.Question == "Alpha Centauri is a star system consisting of how many stars?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "6",
+                        QuestionsID = questions.Single(q => q.Question == "Alpha Centauri is a star system consisting of how many stars?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "5",
+                        QuestionsID = questions.Single(q => q.Question == "Alpha Centauri is a star system consisting of how many stars?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "9",
+                        QuestionsID = questions.Single(q => q.Question == "Alpha Centauri is a star system consisting of how many stars?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "2.45 ly",
+                        QuestionsID = questions.Single(q => q.Question == "How far away is Alpha Centauri from us?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "1.86 ly",
+                        QuestionsID = questions.Single(q => q.Question == "How far away is Alpha Centauri from us?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "14.27 ly",
+                        QuestionsID = questions.Single(q => q.Question == "How far away is Alpha Centauri from us?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "8.5 ly",
+                        QuestionsID = questions.Single(q => q.Question == "How far away is Alpha Centauri from us?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Century",
+                        QuestionsID = questions.Single(q => q.Question == "Alpha Centauri forms the brightest 'star' in which constellation?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Centennial",
+                        QuestionsID = questions.Single(q => q.Question == "Alpha Centauri forms the brightest 'star' in which constellation?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Centepede",
+                        QuestionsID = questions.Single(q => q.Question == "Alpha Centauri forms the brightest 'star' in which constellation?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Centellephus",
+                        QuestionsID = questions.Single(q => q.Question == "Alpha Centauri forms the brightest 'star' in which constellation?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "52,700°F",
+                        QuestionsID = questions.Single(q => q.Question == "What is the surface temperature of Alpha Centauri?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "12,060°F",
+                        QuestionsID = questions.Single(q => q.Question == "What is the surface temperature of Alpha Centauri?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "105,000°F",
+                        QuestionsID = questions.Single(q => q.Question == "What is the surface temperature of Alpha Centauri?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "7,560°F",
+                        QuestionsID = questions.Single(q => q.Question == "What is the surface temperature of Alpha Centauri?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "12",
+                        QuestionsID = questions.Single(q => q.Question == "How many stars are brighter than Alpha Centauri in the night sky?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "5",
+                        QuestionsID = questions.Single(q => q.Question == "How many stars are brighter than Alpha Centauri in the night sky?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "1,020",
+                        QuestionsID = questions.Single(q => q.Question == "How many stars are brighter than Alpha Centauri in the night sky?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "256",
+                        QuestionsID = questions.Single(q => q.Question == "How many stars are brighter than Alpha Centauri in the night sky?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "100,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "Approximately how wide is the Milky Way?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "10,000 ly",
+                        QuestionsID = questions.Single(q => q.Question == "Approximately how wide is the Milky Way?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "1,000,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "Approximately how wide is the Milky Way?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "1,000,000,000 ly",
+                        QuestionsID = questions.Single(q => q.Question == "Approximately how wide is the Milky Way?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "100,000",
+                        QuestionsID = questions.Single(q => q.Question == "There are at least how many stars in the Milky Way Galaxy?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "85,000",
+                        QuestionsID = questions.Single(q => q.Question == "There are at least how many stars in the Milky Way Galaxy?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "750,000",
+                        QuestionsID = questions.Single(q => q.Question == "There are at least how many stars in the Milky Way Galaxy?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "800,000,000",
+                        QuestionsID = questions.Single(q => q.Question == "There are at least how many stars in the Milky Way Galaxy?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Elliptical Galaxy",
+                        QuestionsID = questions.Single(q => q.Question == "What type of galaxy is the Milky Way?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Irregular Galaxy",
+                        QuestionsID = questions.Single(q => q.Question == "What type of galaxy is the Milky Way?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Regular Galaxy",
+                        QuestionsID = questions.Single(q => q.Question == "What type of galaxy is the Milky Way?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "Circular Galaxy",
+                        QuestionsID = questions.Single(q => q.Question == "What type of galaxy is the Milky Way?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "A supermassive quasar",
+                        QuestionsID = questions.Single(q => q.Question == "Likely what is Saggitarius A, the object at the center of the Milky Way?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "A really big planet",
+                        QuestionsID = questions.Single(q => q.Question == "Likely what is Saggitarius A, the object at the center of the Milky Way?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "A gigantic star",
+                        QuestionsID = questions.Single(q => q.Question == "Likely what is Saggitarius A, the object at the center of the Milky Way?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "A supernova",
+                        QuestionsID = questions.Single(q => q.Question == "Likely what is Saggitarius A, the object at the center of the Milky Way?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "100 solar masses",
+                        QuestionsID = questions.Single(q => q.Question == "How massive is Saggitarius A (in solar masses)?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "2,500 solar masses",
+                        QuestionsID = questions.Single(q => q.Question == "How massive is Saggitarius A (in solar masses)?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "125,000 solar masses",
+                        QuestionsID = questions.Single(q => q.Question == "How massive is Saggitarius A (in solar masses)?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "2,000,000 masses",
+                        QuestionsID = questions.Single(q => q.Question == "How massive is Saggitarius A (in solar masses)?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "A black hole",
+                        QuestionsID = questions.Single(q => q.Question == "What is Andromeda?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "A star",
+                        QuestionsID = questions.Single(q => q.Question == "What is Andromeda?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "An elliptical galaxy",
+                        QuestionsID = questions.Single(q => q.Question == "What is Andromeda?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "A comet",
+                        QuestionsID = questions.Single(q => q.Question == "What is Andromeda?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "50 ly",
+                        QuestionsID = questions.Single(q => q.Question == "Approximately how far away is Andromeda from The Milky Way?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "1,000 ly",
+                        QuestionsID = questions.Single(q => q.Question == "Approximately how far away is Andromeda from The Milky Way?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "650,000,000 ly",
+                        QuestionsID = questions.Single(q => q.Question == "Approximately how far away is Andromeda from The Milky Way?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "57,850,000 ly",
+                        QuestionsID = questions.Single(q => q.Question == "Approximately how far away is Andromeda from The Milky Way?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "1,000,000,000,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "Approximately how far across is the Andromeda Galaxy?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "10,000 ly",
+                        QuestionsID = questions.Single(q => q.Question == "Approximately how far across is the Andromeda Galaxy?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "22,000 ly",
+                        QuestionsID = questions.Single(q => q.Question == "Approximately how far across is the Andromeda Galaxy?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "220,000 miles",
+                        QuestionsID = questions.Single(q => q.Question == "Approximately how far across is the Andromeda Galaxy?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "4,000,000 years",
+                        QuestionsID = questions.Single(q => q.Question == "The Milky Way and Andromeda Galaxies are expected to collide in how many years?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "10,000,000 years",
+                        QuestionsID = questions.Single(q => q.Question == "The Milky Way and Andromeda Galaxies are expected to collide in how many years?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "44,000,000,000 years",
+                        QuestionsID = questions.Single(q => q.Question == "The Milky Way and Andromeda Galaxies are expected to collide in how many years?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "420,000 years",
+                        QuestionsID = questions.Single(q => q.Question == "The Milky Way and Andromeda Galaxies are expected to collide in how many years?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "4,000,000 stars",
+                        QuestionsID = questions.Single(q => q.Question == "Approximately how many stars are in the Andromeda Galaxy?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "999,999,999,999,999,999 stars",
+                        QuestionsID = questions.Single(q => q.Question == "Approximately how many stars are in the Andromeda Galaxy?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "88,500,070,000 stars",
+                        QuestionsID = questions.Single(q => q.Question == "Approximately how many stars are in the Andromeda Galaxy?").QuestionsID
+                    },
+                    new FakeAnswers 
+                    {
+                        FakeAnswer = "530,000 stars",
+                        QuestionsID = questions.Single(q => q.Question == "Approximately how many stars are in the Andromeda Galaxy?").QuestionsID
+                    },
+                };
+
+                foreach (FakeAnswers fa in fakeAnswers)
+                  {
+                      context.FakeAnswers.Add(fa);
+                  }
+                  context.SaveChanges();
 
 
                 var celesteHost = new CelesteHost[]

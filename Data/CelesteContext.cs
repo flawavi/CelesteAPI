@@ -19,10 +19,12 @@ namespace Celeste.Data
         public CelesteContext(DbContextOptions<CelesteContext> options)
             : base(options)
         { }
-        public DbSet<Journey> Journey {get;set;}
-        public DbSet<Trivia> Trivia {get;set;}
-        public DbSet<Explorer> Explorer {get;set;}
         public DbSet<CelesteHost> CelesteHost {get;set;}
+        public DbSet<Explorer> Explorer {get;set;}
+        public DbSet<Questions> Questions {get;set;}
+        public DbSet<Answers> Answers {get;set;}
+        public DbSet<FakeAnswers> FakeAnswers {get;set;}
+        public DbSet<Journey> Journey {get;set;}
         public DbSet<ExplorerJourney> ExplorerJourney {get;set;}
         public DbSet<ExplorerResponse> ExplorerResponse {get;set;}
 
