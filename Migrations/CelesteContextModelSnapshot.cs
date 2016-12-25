@@ -16,6 +16,20 @@ namespace CelesteAPI.Migrations
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
                 .HasAnnotation("ProductVersion", "1.1.0-rtm-22752");
 
+            modelBuilder.Entity("Celeste.Models.Answers", b =>
+                {
+                    b.Property<int>("AnswersID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Answer");
+
+                    b.Property<int>("QuestionsID");
+
+                    b.HasKey("AnswersID");
+
+                    b.ToTable("Answers");
+                });
+
             modelBuilder.Entity("Celeste.Models.CelesteHost", b =>
                 {
                     b.Property<int>("CelesteHostID")
@@ -106,6 +120,20 @@ namespace CelesteAPI.Migrations
                     b.ToTable("ExplorerResponse");
                 });
 
+            modelBuilder.Entity("Celeste.Models.FakeAnswers", b =>
+                {
+                    b.Property<string>("FakeAnswersID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("FakeAnswer");
+
+                    b.Property<int>("QuestionsID");
+
+                    b.HasKey("FakeAnswersID");
+
+                    b.ToTable("FakeAnswers");
+                });
+
             modelBuilder.Entity("Celeste.Models.Journey", b =>
                 {
                     b.Property<int>("JourneyID")
@@ -124,12 +152,10 @@ namespace CelesteAPI.Migrations
                     b.ToTable("Journey");
                 });
 
-            modelBuilder.Entity("Celeste.Models.Trivia", b =>
+            modelBuilder.Entity("Celeste.Models.Questions", b =>
                 {
-                    b.Property<int>("TriviaID")
+                    b.Property<int>("QuestionsID")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Answer");
 
                     b.Property<int>("JourneyID");
 
@@ -137,11 +163,11 @@ namespace CelesteAPI.Migrations
 
                     b.Property<string>("Question");
 
-                    b.HasKey("TriviaID");
+                    b.HasKey("QuestionsID");
 
                     b.HasIndex("JourneyID");
 
-                    b.ToTable("Trivia");
+                    b.ToTable("Questions");
                 });
 
             modelBuilder.Entity("Celeste.Models.ExplorerJourney", b =>
@@ -172,10 +198,10 @@ namespace CelesteAPI.Migrations
                         .HasForeignKey("ExplorerID");
                 });
 
-            modelBuilder.Entity("Celeste.Models.Trivia", b =>
+            modelBuilder.Entity("Celeste.Models.Questions", b =>
                 {
                     b.HasOne("Celeste.Models.Journey", "Journey")
-                        .WithMany("TriviaList")
+                        .WithMany("QuestionList")
                         .HasForeignKey("JourneyID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
