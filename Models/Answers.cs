@@ -8,6 +8,7 @@ namespace Celeste.Models
         [Key]
         public int AnswersID {get;set;}
         public int QuestionsID {get;set;}
+        public Questions Questions {get;set;}
         public string Answer {get;set;}
     }
 }

@@ -12,10 +12,10 @@ using System.Threading.Tasks;
 namespace CelesteAPI.Controllers
 {
     [Route("[controller]")]
-    public class QuestionsController : Controller
+    public class AnswersController : Controller
     {
         private CelesteContext context;
-        public QuestionsController(CelesteContext ctx)
+        public AnswersController(CelesteContext ctx)
         {
             context = ctx;
         }
@@ -24,25 +24,25 @@ namespace CelesteAPI.Controllers
         public async Task<IActionResult> Get()
         {
             //select everything in the explorer table
-            List<Questions> questions = await context.Questions.ToListAsync();
-            List<QuestionsViewModel> QVM = new List<QuestionsViewModel>();
-            foreach(Questions q in questions)
+            List<Answers> answers = await context.Answers.ToListAsync();
+            List<AnswersViewModel> AVM = new List<AnswersViewModel>();
+            foreach(Answers a in answers)
             {
-                Journey result = await context.Journey.Where(j => j.JourneyID == q.JourneyID).SingleOrDefaultAsync();
-                QuestionsViewModel model = new QuestionsViewModel(q);
-                model.Journey = new JourneyViewModel(result);
-                QVM.Add(model);
+                Questions result = await context.Questions.Where(q => q.QuestionsID == a.QuestionsID).SingleOrDefaultAsync();
+                AnswersViewModel model = new AnswersViewModel(a);
+                model.Questions = new QuestionsViewModel(result);
+                AVM.Add(model);
             }
-            if (questions == null)
+            if (answers == null)
             {
                 return NotFound();
             }
 
-            return Ok(QVM);
+            return Ok(AVM);
         }
 
         // GET api/values/5
-        [HttpGet("{id}", Name="GetTrivia")]
+        [HttpGet("{id}", Name="GetAnswers")]
         public IActionResult Get(int id)
         {
             if (!ModelState.IsValid)
@@ -51,14 +51,14 @@ namespace CelesteAPI.Controllers
             }
             try
             {
-                List<Questions> trivia = context.Questions.Where(t => t.JourneyID == id).ToList();
+                List<Answers> answers = context.Answers.Where(a => a.QuestionsID == id).ToList();
 
-                if (trivia == null)
+                if (answers == null)
                 {
                     return NotFound();
                 }
                 
-                return Ok(trivia);
+                return Ok(answers);
             }
             catch (System.InvalidOperationException ex)
             {
@@ -68,21 +68,21 @@ namespace CelesteAPI.Controllers
 
         // POST api/values
         [HttpPost]
-        public IActionResult Post([FromBody]Questions question)
+        public IActionResult Post([FromBody]Answers answers)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            context.Questions.Add(question);
+            context.Answers.Add(answers);
             try
             {
                 context.SaveChanges();
             }
             catch (DbUpdateException)
             {
-                if (QuestionsExists(question.QuestionsID))
+                if (AnswersExists(answers.AnswersID))
                 {
                     return new StatusCodeResult(StatusCodes.Status409Conflict);
                 }
@@ -91,24 +91,24 @@ namespace CelesteAPI.Controllers
                     throw;
                 }
             }
-            return CreatedAtRoute("GetTrivia", new { id = question.QuestionsID }, question);
+            return CreatedAtRoute("GetAnswers", new { id = answers.AnswersID }, answers);
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody]Questions question)
+        public IActionResult Put(int id, [FromBody]Answers answers)
         {
             if(!ModelState.IsValid)
             {
                 return BadRequest();
             }
-           if (question.QuestionsID != id)
+           if (answers.AnswersID != id)
             {
                 return BadRequest();
             }
-            context.Questions.Update(question);
+            context.Answers.Update(answers);
             context.SaveChanges();
-            return Ok(question);
+            return Ok(answers);
         }
 
         // DELETE api/values/5
@@ -120,20 +120,20 @@ namespace CelesteAPI.Controllers
                 return BadRequest();
             }
 
-            Questions question = context.Questions.Single(q => q.QuestionsID == id);
+            Answers answers = context.Answers.Single(a => a.AnswersID == id);
             
-            if(question == null)
+            if(answers == null)
             {
                 return NotFound();
             }
             try
             {
-                context.Questions.Remove(question);
+                context.Answers.Remove(answers);
                 context.SaveChanges();
             }
             catch (DbUpdateException)
             {
-            if (QuestionsExists(question.QuestionsID))
+            if (AnswersExists(answers.AnswersID))
                 {
                     return new StatusCodeResult(StatusCodes.Status409Conflict);
                 }
@@ -142,12 +142,12 @@ namespace CelesteAPI.Controllers
                     throw new Exception();
                 }
             }
-            return Ok(question);
+            return Ok(answers);
         }
         //Method: returns true if there is at least a single instance of an Explorer in Celeste.context.
-        private bool QuestionsExists(int id)
+        private bool AnswersExists(int id)
         {
-            return context.Questions.Count(q => q.QuestionsID == id) > 0;
+            return context.Answers.Count(a => a.AnswersID == id) > 0;
         }
     }
 }

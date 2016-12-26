@@ -12,10 +12,10 @@ using System.Threading.Tasks;
 namespace CelesteAPI.Controllers
 {
     [Route("[controller]")]
-    public class QuestionsController : Controller
+    public class FakeAnswersController : Controller
     {
         private CelesteContext context;
-        public QuestionsController(CelesteContext ctx)
+        public FakeAnswersController(CelesteContext ctx)
         {
             context = ctx;
         }
@@ -24,25 +24,25 @@ namespace CelesteAPI.Controllers
         public async Task<IActionResult> Get()
         {
             //select everything in the explorer table
-            List<Questions> questions = await context.Questions.ToListAsync();
-            List<QuestionsViewModel> QVM = new List<QuestionsViewModel>();
-            foreach(Questions q in questions)
+            List<FakeAnswers> fakeanswers = await context.FakeAnswers.ToListAsync();
+            List<FakeAnswersViewModel> FAVM = new List<FakeAnswersViewModel>();
+            foreach(FakeAnswers fa in fakeanswers)
             {
-                Journey result = await context.Journey.Where(j => j.JourneyID == q.JourneyID).SingleOrDefaultAsync();
-                QuestionsViewModel model = new QuestionsViewModel(q);
-                model.Journey = new JourneyViewModel(result);
-                QVM.Add(model);
+                Questions result = await context.Questions.Where(q => q.QuestionsID == fa.QuestionsID).SingleOrDefaultAsync();
+                FakeAnswersViewModel model = new FakeAnswersViewModel(fa);
+                model.Questions = new QuestionsViewModel(result);
+                FAVM.Add(model);
             }
-            if (questions == null)
+            if (fakeanswers == null)
             {
                 return NotFound();
             }
 
-            return Ok(QVM);
+            return Ok(FAVM);
         }
 
         // GET api/values/5
-        [HttpGet("{id}", Name="GetTrivia")]
+        [HttpGet("{id}", Name="GetFakeAnswers")]
         public IActionResult Get(int id)
         {
             if (!ModelState.IsValid)
@@ -51,14 +51,14 @@ namespace CelesteAPI.Controllers
             }
             try
             {
-                List<Questions> trivia = context.Questions.Where(t => t.JourneyID == id).ToList();
+                List<FakeAnswers> fakeanswers = context.FakeAnswers.Where(fa => fa.FakeAnswersID == id).ToList();
 
-                if (trivia == null)
+                if (fakeanswers == null)
                 {
                     return NotFound();
                 }
                 
-                return Ok(trivia);
+                return Ok(fakeanswers);
             }
             catch (System.InvalidOperationException ex)
             {
@@ -68,21 +68,21 @@ namespace CelesteAPI.Controllers
 
         // POST api/values
         [HttpPost]
-        public IActionResult Post([FromBody]Questions question)
+        public IActionResult Post([FromBody]FakeAnswers fakeanswers)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            context.Questions.Add(question);
+            context.FakeAnswers.Add(fakeanswers);
             try
             {
                 context.SaveChanges();
             }
             catch (DbUpdateException)
             {
-                if (QuestionsExists(question.QuestionsID))
+                if (FakeAnswersExists(fakeanswers.FakeAnswersID))
                 {
                     return new StatusCodeResult(StatusCodes.Status409Conflict);
                 }
@@ -91,24 +91,24 @@ namespace CelesteAPI.Controllers
                     throw;
                 }
             }
-            return CreatedAtRoute("GetTrivia", new { id = question.QuestionsID }, question);
+            return CreatedAtRoute("GetFakeAnswers", new { id = fakeanswers.FakeAnswersID }, fakeanswers);
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody]Questions question)
+        public IActionResult Put(int id, [FromBody]FakeAnswers fakeanswers)
         {
             if(!ModelState.IsValid)
             {
                 return BadRequest();
             }
-           if (question.QuestionsID != id)
+           if (fakeanswers.FakeAnswersID != id)
             {
                 return BadRequest();
             }
-            context.Questions.Update(question);
+            context.FakeAnswers.Update(fakeanswers);
             context.SaveChanges();
-            return Ok(question);
+            return Ok(fakeanswers);
         }
 
         // DELETE api/values/5
@@ -120,20 +120,20 @@ namespace CelesteAPI.Controllers
                 return BadRequest();
             }
 
-            Questions question = context.Questions.Single(q => q.QuestionsID == id);
+            FakeAnswers fakeanswers = context.FakeAnswers.Single(fa => fa.FakeAnswersID == id);
             
-            if(question == null)
+            if(fakeanswers == null)
             {
                 return NotFound();
             }
             try
             {
-                context.Questions.Remove(question);
+                context.FakeAnswers.Remove(fakeanswers);
                 context.SaveChanges();
             }
             catch (DbUpdateException)
             {
-            if (QuestionsExists(question.QuestionsID))
+            if (FakeAnswersExists(fakeanswers.FakeAnswersID))
                 {
                     return new StatusCodeResult(StatusCodes.Status409Conflict);
                 }
@@ -142,12 +142,12 @@ namespace CelesteAPI.Controllers
                     throw new Exception();
                 }
             }
-            return Ok(question);
+            return Ok(fakeanswers);
         }
         //Method: returns true if there is at least a single instance of an Explorer in Celeste.context.
-        private bool QuestionsExists(int id)
+        private bool FakeAnswersExists(int id)
         {
-            return context.Questions.Count(q => q.QuestionsID == id) > 0;
+            return context.FakeAnswers.Count(fa => fa.FakeAnswersID == id) > 0;
         }
     }
 }
