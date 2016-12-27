@@ -27,6 +27,8 @@ namespace CelesteAPI.Migrations
 
                     b.HasKey("AnswersID");
 
+                    b.HasIndex("QuestionsID");
+
                     b.ToTable("Answers");
                 });
 
@@ -122,7 +124,7 @@ namespace CelesteAPI.Migrations
 
             modelBuilder.Entity("Celeste.Models.FakeAnswers", b =>
                 {
-                    b.Property<string>("FakeAnswersID")
+                    b.Property<int>("FakeAnswersID")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("FakeAnswer");
@@ -130,6 +132,8 @@ namespace CelesteAPI.Migrations
                     b.Property<int>("QuestionsID");
 
                     b.HasKey("FakeAnswersID");
+
+                    b.HasIndex("QuestionsID");
 
                     b.ToTable("FakeAnswers");
                 });
@@ -159,8 +163,6 @@ namespace CelesteAPI.Migrations
 
                     b.Property<int>("JourneyID");
 
-                    b.Property<int>("Point");
-
                     b.Property<string>("Question");
 
                     b.HasKey("QuestionsID");
@@ -168,6 +170,14 @@ namespace CelesteAPI.Migrations
                     b.HasIndex("JourneyID");
 
                     b.ToTable("Questions");
+                });
+
+            modelBuilder.Entity("Celeste.Models.Answers", b =>
+                {
+                    b.HasOne("Celeste.Models.Questions", "Questions")
+                        .WithMany("AnswerList")
+                        .HasForeignKey("QuestionsID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Celeste.Models.ExplorerJourney", b =>
@@ -188,6 +198,14 @@ namespace CelesteAPI.Migrations
                     b.HasOne("Celeste.Models.Explorer", "Explorer")
                         .WithMany("ExplorerResponses")
                         .HasForeignKey("ExplorerID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Celeste.Models.FakeAnswers", b =>
+                {
+                    b.HasOne("Celeste.Models.Questions", "Questions")
+                        .WithMany("FakeAnswerList")
+                        .HasForeignKey("QuestionsID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

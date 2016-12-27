@@ -2,20 +2,20 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using Celeste.Models.ViewModels;
 
-namespace Celeste.Models
+namespace Celeste.Models.ViewModels
 {
     public class QuestionsViewModel
     {
-        public JourneyViewModel Journey {get;set;}
+        public int QuestionsID {get;set;}
         public string Question {get;set;}
-        public string Answer {get;set;}
-        public int Point {get;set;} 
+        public int JourneyID {get;set;}
+        public JourneyViewModel Journey {get;set;}
         public QuestionsViewModel(){}
-        public QuestionsViewModel(Questions t) 
+        public QuestionsViewModel(Questions q) 
         {
-            Question = t.Question;
-            // Answer = t.Answer;
-            Point = t.Point;
+            Question = q.Question;
+            QuestionsID = q.QuestionsID;
+            JourneyID = q.JourneyID;
         }
     }
 }
