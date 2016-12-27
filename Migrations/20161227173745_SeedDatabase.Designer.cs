@@ -8,8 +8,8 @@ using Celeste.Data;
 namespace CelesteAPI.Migrations
 {
     [DbContext(typeof(CelesteContext))]
-    [Migration("20161226173136_ReSeedingDatabase")]
-    partial class ReSeedingDatabase
+    [Migration("20161227173745_SeedDatabase")]
+    partial class SeedDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -163,8 +163,6 @@ namespace CelesteAPI.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("JourneyID");
-
-                    b.Property<int>("Point");
 
                     b.Property<string>("Question");
 

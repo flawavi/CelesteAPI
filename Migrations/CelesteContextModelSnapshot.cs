@@ -163,8 +163,6 @@ namespace CelesteAPI.Migrations
 
                     b.Property<int>("JourneyID");
 
-                    b.Property<int>("Point");
-
                     b.Property<string>("Question");
 
                     b.HasKey("QuestionsID");

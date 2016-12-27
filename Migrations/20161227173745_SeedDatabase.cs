@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace CelesteAPI.Migrations
 {
-    public partial class ReSeedingDatabase : Migration
+    public partial class SeedDatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -120,7 +120,6 @@ namespace CelesteAPI.Migrations
                     QuestionsID = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     JourneyID = table.Column<int>(nullable: false),
-                    Point = table.Column<int>(nullable: false),
                     Question = table.Column<string>(nullable: true)
                 },
                 constraints: table =>

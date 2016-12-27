@@ -11,8 +11,6 @@ namespace Celeste.Models
         public int JourneyID {get;set;}
         public Journey Journey {get;set;}
         public string Question {get;set;}
-        public int Point {get;set;} 
         public ICollection<Answers> AnswerList {get;set;}
-        public ICollection<FakeAnswers> FakeAnswerList {get;set;}
     }
 }
