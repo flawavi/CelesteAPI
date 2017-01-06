@@ -19,7 +19,6 @@ namespace Celeste.Models
         [Required]
         public int Age {get;set;}
         public DateTime DateCreated {get;set;}
-        public ICollection<ExplorerResponse> ExplorerResponses {get;set;}
         public ICollection<Journey> Journies {get;set;}
 
     }

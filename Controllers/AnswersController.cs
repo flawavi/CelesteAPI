@@ -51,7 +51,7 @@ namespace CelesteAPI.Controllers
             }
             try
             {
-                List<Answers> answers = context.Answers.Where(a => a.QuestionsID == id).ToList();
+                List<Answers> answers = context.Answers.Where(a => a.JourneyID == id).ToList();
 
                 if (answers == null)
                 {

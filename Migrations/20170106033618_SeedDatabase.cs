@@ -43,27 +43,6 @@ namespace CelesteAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ExplorerResponse",
-                columns: table => new
-                {
-                    ExplorerResponseID = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    Correct = table.Column<bool>(nullable: false),
-                    DateCreated = table.Column<DateTime>(nullable: false, defaultValueSql: "now()"),
-                    ExplorerID = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ExplorerResponse", x => x.ExplorerResponseID);
-                    table.ForeignKey(
-                        name: "FK_ExplorerResponse_Explorer_ExplorerID",
-                        column: x => x.ExplorerID,
-                        principalTable: "Explorer",
-                        principalColumn: "ExplorerID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Journey",
                 columns: table => new
                 {
@@ -93,7 +72,6 @@ namespace CelesteAPI.Migrations
                     DateCreated = table.Column<DateTime>(nullable: false, defaultValueSql: "now()"),
                     ExplorerID = table.Column<int>(nullable: false),
                     JourneyID = table.Column<int>(nullable: false),
-                    Score = table.Column<int>(nullable: false),
                     isCompleted = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
@@ -140,33 +118,15 @@ namespace CelesteAPI.Migrations
                     AnswersID = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     Answer = table.Column<string>(nullable: true),
-                    QuestionsID = table.Column<int>(nullable: false)
+                    JourneyID = table.Column<int>(nullable: false),
+                    QuestionsID = table.Column<int>(nullable: false),
+                    Real = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Answers", x => x.AnswersID);
                     table.ForeignKey(
                         name: "FK_Answers_Questions_QuestionsID",
-                        column: x => x.QuestionsID,
-                        principalTable: "Questions",
-                        principalColumn: "QuestionsID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "FakeAnswers",
-                columns: table => new
-                {
-                    FakeAnswersID = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    FakeAnswer = table.Column<string>(nullable: true),
-                    QuestionsID = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_FakeAnswers", x => x.FakeAnswersID);
-                    table.ForeignKey(
-                        name: "FK_FakeAnswers_Questions_QuestionsID",
                         column: x => x.QuestionsID,
                         principalTable: "Questions",
                         principalColumn: "QuestionsID",
@@ -189,16 +149,6 @@ namespace CelesteAPI.Migrations
                 column: "JourneyID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ExplorerResponse_ExplorerID",
-                table: "ExplorerResponse",
-                column: "ExplorerID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_FakeAnswers_QuestionsID",
-                table: "FakeAnswers",
-                column: "QuestionsID");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Journey_ExplorerID",
                 table: "Journey",
                 column: "ExplorerID");
@@ -219,12 +169,6 @@ namespace CelesteAPI.Migrations
 
             migrationBuilder.DropTable(
                 name: "ExplorerJourney");
-
-            migrationBuilder.DropTable(
-                name: "ExplorerResponse");
-
-            migrationBuilder.DropTable(
-                name: "FakeAnswers");
 
             migrationBuilder.DropTable(
                 name: "Questions");
