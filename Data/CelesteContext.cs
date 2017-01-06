@@ -25,7 +25,6 @@ namespace Celeste.Data
         public DbSet<Answers> Answers {get;set;}
         public DbSet<Journey> Journey {get;set;}
         public DbSet<ExplorerJourney> ExplorerJourney {get;set;}
-        public DbSet<ExplorerResponse> ExplorerResponse {get;set;}
 
         //Method: OnModelCreating() accepts one argument of type ModelBuilder and specifies exactly what properties will be included on each model as its table is created in the db.
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -35,10 +34,6 @@ namespace Celeste.Data
                 .HasDefaultValueSql("now()");
 
             modelBuilder.Entity<ExplorerJourney>()
-                .Property(b => b.DateCreated)
-                .HasDefaultValueSql("now()");
-                
-            modelBuilder.Entity<ExplorerResponse>()
                 .Property(b => b.DateCreated)
                 .HasDefaultValueSql("now()");
         }

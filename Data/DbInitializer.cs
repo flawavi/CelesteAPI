@@ -285,7 +285,7 @@ namespace Celeste.Data
                   },
                   new Answers {
                       QuestionsID = question.Single(q => q.Question == "What is the radius of the Moon?").QuestionsID,
-                      Answer = "5,0200 miles",
+                      Answer = "50,200 miles",
                       Real = false,
                       JourneyID = journey.Single(j => j.Destination == "Moon").JourneyID
                   },
@@ -357,7 +357,7 @@ namespace Celeste.Data
                   },
                   new Answers {
                       QuestionsID = question.Single(q => q.Question == "About how many Earth days does it take the Moon to rotate on its axis?").QuestionsID,
-                      Answer = "27",
+                      Answer = "27 days",
                       Real = true,
                       JourneyID = journey.Single(j => j.Destination == "Moon").JourneyID
                   },
@@ -1632,20 +1632,20 @@ namespace Celeste.Data
                       The Moon has a significant impact on the geologic activity of Earth, specifically the tides. Without it, Earth would look and behave very differently. The Moon is approximately 27% the volume of Earth, with a radius of about 1,080 miles, but because it is relatively close to Earth, with an average distance of 240,000 miles, the effects of the Moon's gravity on Earth are pronounced. Interestingly, the rest of the planets (Mercury, Venus, Mars, Jupiter, Saturn, Neptune and Uranus) would all fit snugly between the Moon and Earth at that distance.
                       The Moon is about 4.5B years old, and it has been orbiting the Earth for so long that it has become tidally locked to Earth. The Moon revolves around the Earth every 27 days, and it takes the same amount of time for the Moon to revolve on its own axis. This is the principle reason why we only ever see one side of the Moon. ",
                       JourneyID = journey.Single(j => j.Destination == "Moon").JourneyID,
-                      ImageURL = "https://s-media-cache-ak0.pinimg.com/564x/48/4c/34/484c347c62cbb2d7759adcac763a6994.jpg"
+                      ImageURL = "https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg"
                   },
                   new CelesteHost {
                       Lesson = @"Mars is the fourth planet from the Sun, and sits approximately 1,420,000 miles from the Sun on average. Mars is a relatively small planet, with a diameter of 4,200 miles - just over half of Earth's. Mars has two small moons, Phobos and Deimos. Phobos has a diameter of 14 miles, and Deimos' is just over half the size of Phobos, with a diameter of 7.7 miles.
                       Mars glows red from our vantage point due to the fact that Mars is composed primarily of Oxygen and Iron, most of which is literally rusted. Despite its bleak, rocky terrain, Mars offers many jaw dropping geological wonders, including Valles Marineris, a canyon more than 2,500 miles long, 120 miles wide and 4.4 miles deep. Of the four terrestrial planets, Mars is the furthest from the Sun.",
                       JourneyID = journey.Single(j => j.Destination == "Mars").JourneyID,
-                      ImageURL = "https://s-media-cache-ak0.pinimg.com/564x/48/4c/34/484c347c62cbb2d7759adcac763a6994.jpg"
+                      ImageURL = "http://mars.nasa.gov/images/mars-globe-valles-marineris-enhanced.jpg"
                   },
                   new CelesteHost {
                       Lesson = @"Jupiter is the largest and most gravitationally influential planet in the solar system, orbiting the Sun from a distance of approximately 480 million miles. Jupiter has a diameter of 86,880 miles, meaning it is over 1,300 times the volume of Earth. Yes, that means over 1,300 Earths can fit inside of Jupiter.
                       Because it is a gas giant, it is not the most dense planet in the solar system, but its sheer volume makes up for it. Jupiter is composed mostly of two elements, 90% Hydrogen and just under 10% helium. Jupiter's strong gravity and rapid rotational velocity combine to form intense storms at the surface, the most famous of which is known as the Great Red Spot, which is so large that about 2.5 Earths could fit inside the storm.
                       Jupiter's powerful gravitational pull means that it can sustain orbits for many satellites, and indeed Jupiter has the most moons of any planet, at a whopping 67.",
                       JourneyID = journey.Single(j => j.Destination == "Jupiter").JourneyID,
-                      ImageURL = "https://s-media-cache-ak0.pinimg.com/564x/48/4c/34/484c347c62cbb2d7759adcac763a6994.jpg"
+                      ImageURL = "http://brianasaussy.com/wp-content/uploads/2016/08/jupiter-image.jpg"
                   },
                   new CelesteHost {
                       Lesson = @"Saturn, also a gas giant, is the most visually stunning planet in the solar system. Its most identifiable trait is its vast ring system, which is primarily composed of tiny icy bodies with some very large structures mixed in. Surprisingly, the ring system is incredibly thin, with an average thickness of only 30 feet!
@@ -1653,38 +1653,38 @@ namespace Celeste.Data
                       Saturn is also a massive planet, with a diameter of 72,370 miles not including its rings, and is situated about 888,200,000 miles from the Sun, almost twice the distance between the Sun and Jupiter.
                       Saturn has 5 fewer moons than Jupiter has, totaling 62. The largest and most famous of which is known as Titan. It is famous for having a thick atmosphere, and for having bodies of liquid at its surface.",
                       JourneyID = journey.Single(j => j.Destination == "Saturn").JourneyID,
-                      ImageURL = "https://s-media-cache-ak0.pinimg.com/564x/48/4c/34/484c347c62cbb2d7759adcac763a6994.jpg"
+                      ImageURL = "https://www.nasa.gov/sites/default/files/thumbnails/image/pia21046_main.jpg"
                   },
                   new CelesteHost {
                       Lesson = @"The Sun is the most important object in the solar system. Without it, there would be no order and no life. The Sun is the largest object in the solar system, with a diameter of approximately 865,000 miles, and is an average distance of 93,000,000 miles from Earth. Approximately 1,300,000 Earths can fit inside the Sun.
                       The Sun contains more than 99.8% of the mass of the solar system, and provides the vast majority of energy for life on Earth. It consists of 3/4 hydrogen and about 1/4 helium, and undergoes fusion at its core, which is the primary source of its light and heat. The surface temperature of the Sun is a staggering 9,940 degrees F.
                       It takes a long time for the energy of the Sun to escape from the core, but once it does, it only takes light 8 minutes and 20 seconds to reach Earth.",
                       JourneyID = journey.Single(j => j.Destination == "Sun").JourneyID,
-                      ImageURL = "https://s-media-cache-ak0.pinimg.com/564x/48/4c/34/484c347c62cbb2d7759adcac763a6994.jpg"
+                      ImageURL = "http://www.astronomy.com/~/media/7CD95E99A545447C8483E576DA2B33F4.jpg"
                   },
                   new CelesteHost {
                       Lesson = @"The Oort Cloud is an oft overlooked aspect of the solar system, perhaps because it is so far away, or perhaps because its existence was theorized not long ago. 
                       The Oort Cloud is a roughly spherical border surrounding the entire solar system that consists of mostly small icy bodies, like comets and asteroids. It is extremely far away from the Sun; it's interior border is approximately 0.8 light years from the Sun, and it's exterior border is approximately 3.2 light years from the Sun. The Oort Cloud is extremely large, and consists of around 2 trillion objects.",
                       JourneyID = journey.Single(j => j.Destination == "The Oort Cloud").JourneyID,
-                      ImageURL = "https://s-media-cache-ak0.pinimg.com/564x/48/4c/34/484c347c62cbb2d7759adcac763a6994.jpg"
+                      ImageURL = "http://astronomynow.com/wp-content/uploads/2016/04/artist_impression_C-2014_S3_PANSTARRS_Oort_Cloud_2444x1620.jpg"
                   },
                   new CelesteHost {
                       Lesson = @"Alpha Centauri is the closest neighboring star system to our solar system, at a distance of approximately 4.4 light years away. It is actually a tri-star system, consisting of a pair of stars known as Alpha Centauri A and B, as well as a smaller, red dwarf star known as Proxima Centauri. The star system itself can be seen with the naked eye, and forms the brightest point of light in the constellation Centaurus. There are only two stars in the night sky that are brighter than Alpha Centauri.
                       Alpha Centauri A is the same category star is the Sun, and has the same surface temperature.",
                       JourneyID = journey.Single(j => j.Destination == "Alpha Centauri").JourneyID,
-                      ImageURL = "https://s-media-cache-ak0.pinimg.com/564x/48/4c/34/484c347c62cbb2d7759adcac763a6994.jpg"
+                      ImageURL = "http://en.es-static.us/upl/2012/10/alpha-centauri-triple-stellar-system.jpeg"
                   },
                   new CelesteHost {
                       Lesson = @"Every object we have discussed so far resides within our galaxy, which we call The Milky Way. Along with our solar system and Alpha Centauri, there are 100,000,000 other stars, each with their own planets, moons, comets, etc.
                       The Milky Way is a spiral galaxy, meaning it has distinct bands of stars, nebulae and other clouds of matter that appear to spiral out from the center, where resides a massive black hole called Saggitarius A. Saggitarius A is 4,200,000 times more massive than the sun, and thus has an incredibly strong gravitational influence on its surroundings.",
                       JourneyID = journey.Single(j => j.Destination == "Milky Way Black Hole").JourneyID,
-                      ImageURL = "https://s-media-cache-ak0.pinimg.com/564x/48/4c/34/484c347c62cbb2d7759adcac763a6994.jpg"
+                      ImageURL = "https://apod.nasa.gov/apod/image/0801/16500feetmilkywaykc2_brunier.jpg"
                   },
                   new CelesteHost {
                       Lesson = @"Much like the Milky Way contains billions stars and planets, the universe itself contains billions of galaxies. The closest galaxy to our Milky Way is another spiral galaxy known as Andromeda. Andromeda is a mere 2,500,000 light years from Earth. That is a mind boggling distance. Just to reiterate, one light year is about one trillion miles, and the Milky Way galaxy itself is 100,000 light years across.
                       Andromeda is about twice the size of the Milky Way, at around 220,000 light years across. Fun fact, Andromeda and the Milky Way are on a collision course, set to slam into each other in about 4,500,000 years. Oddly enough, however, there is so much space in each respective galaxy, that almost none of the 1 trillion stars in the Andromeda galaxy will directly collide with the 100 billion stars in the Milky Way.",
                       JourneyID = journey.Single(j => j.Destination == "Andromeda").JourneyID,
-                      ImageURL = "https://s-media-cache-ak0.pinimg.com/564x/48/4c/34/484c347c62cbb2d7759adcac763a6994.jpg"
+                      ImageURL = "http://i.imgur.com/9uiPO83.jpg"
                   }
                 };
 

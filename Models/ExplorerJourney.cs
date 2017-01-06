@@ -12,9 +12,6 @@ namespace Celeste.Models
         public int ExplorerID {get;set;}
         [Required]
         public int JourneyID {get;set;}
-        [Required]
-        public int Score {get;set;}
-        [Required]
         public bool isCompleted {get;set;}
         public Journey Journey {get;set;}
         public Explorer Explorer {get;set;}
