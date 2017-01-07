@@ -8,8 +8,8 @@ using Celeste.Data;
 namespace CelesteAPI.Migrations
 {
     [DbContext(typeof(CelesteContext))]
-    [Migration("20170106033618_SeedDatabase")]
-    partial class SeedDatabase
+    [Migration("20170107221149_removedDateCreatedFromEJTable")]
+    partial class removedDateCreatedFromEJTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -90,15 +90,16 @@ namespace CelesteAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasDefaultValueSql("now()");
 
-                    b.Property<int>("ExplorerID");
+                    b.Property<string>("ExplorerID")
+                        .IsRequired();
+
+                    b.Property<int?>("ExplorerID1");
 
                     b.Property<int>("JourneyID");
 
-                    b.Property<bool>("isCompleted");
-
                     b.HasKey("ExplorerJourneyID");
 
-                    b.HasIndex("ExplorerID");
+                    b.HasIndex("ExplorerID1");
 
                     b.HasIndex("JourneyID");
 
@@ -151,8 +152,7 @@ namespace CelesteAPI.Migrations
                 {
                     b.HasOne("Celeste.Models.Explorer", "Explorer")
                         .WithMany()
-                        .HasForeignKey("ExplorerID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("ExplorerID1");
 
                     b.HasOne("Celeste.Models.Journey", "Journey")
                         .WithMany()

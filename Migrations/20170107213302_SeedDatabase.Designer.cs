@@ -8,9 +8,10 @@ using Celeste.Data;
 namespace CelesteAPI.Migrations
 {
     [DbContext(typeof(CelesteContext))]
-    partial class CelesteContextModelSnapshot : ModelSnapshot
+    [Migration("20170107213302_SeedDatabase")]
+    partial class SeedDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
@@ -89,16 +90,13 @@ namespace CelesteAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasDefaultValueSql("now()");
 
-                    b.Property<string>("ExplorerID")
-                        .IsRequired();
-
-                    b.Property<int?>("ExplorerID1");
+                    b.Property<int>("ExplorerID");
 
                     b.Property<int>("JourneyID");
 
                     b.HasKey("ExplorerJourneyID");
 
-                    b.HasIndex("ExplorerID1");
+                    b.HasIndex("ExplorerID");
 
                     b.HasIndex("JourneyID");
 
@@ -151,7 +149,8 @@ namespace CelesteAPI.Migrations
                 {
                     b.HasOne("Celeste.Models.Explorer", "Explorer")
                         .WithMany()
-                        .HasForeignKey("ExplorerID1");
+                        .HasForeignKey("ExplorerID")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Celeste.Models.Journey", "Journey")
                         .WithMany()

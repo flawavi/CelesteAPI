@@ -34,11 +34,11 @@ namespace CelesteAPI.Controllers
 
         // GET api/values/5
         [HttpGet("{id}", Name="GetExplorerJourney")]
-        public IActionResult Get([FromRoute]int id)
+        public IActionResult Get([FromRoute]string id)
         {
             try
             {
-                ExplorerJourney explorerjourney = context.ExplorerJourney.Single(e => e.ExplorerID == id);
+                IQueryable<ExplorerJourney> explorerjourney = context.ExplorerJourney.Where(e => e.ExplorerID == id);
 
                 if (explorerjourney == null)
                 {
@@ -107,7 +107,7 @@ namespace CelesteAPI.Controllers
                 return BadRequest();
             }
 
-            ExplorerJourney explorerjourney = context.ExplorerJourney.Single(e => e.ExplorerID == id);
+            ExplorerJourney explorerjourney = context.ExplorerJourney.Single(ej => ej.ExplorerJourneyID == id);
             
             if(explorerjourney == null)
             {
@@ -120,7 +120,7 @@ namespace CelesteAPI.Controllers
             }
             catch (DbUpdateException)
             {
-            if (ExplorerJourneyExists(explorerjourney.ExplorerID))
+            if (ExplorerJourneyExists(explorerjourney.ExplorerJourneyID))
                 {
                     return new StatusCodeResult(StatusCodes.Status409Conflict);
                 }
@@ -134,7 +134,7 @@ namespace CelesteAPI.Controllers
         //Method: returns true if there is at least a single instance of an Explorer in Celeste.context.
         private bool ExplorerJourneyExists(int id)
         {
-            return context.ExplorerJourney.Count(e => e.ExplorerID == id) > 0;
+            return context.ExplorerJourney.Count(ej => ej.ExplorerJourneyID == id) > 0;
         }
     }
 }
