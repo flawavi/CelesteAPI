@@ -71,8 +71,7 @@ namespace CelesteAPI.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     DateCreated = table.Column<DateTime>(nullable: false, defaultValueSql: "now()"),
                     ExplorerID = table.Column<int>(nullable: false),
-                    JourneyID = table.Column<int>(nullable: false),
-                    isCompleted = table.Column<bool>(nullable: false)
+                    JourneyID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
